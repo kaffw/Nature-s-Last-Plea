@@ -8,6 +8,7 @@ TagManager:
   - Border
   - Trash
   - FishingHook
+  - Log
   layers:
   - Default
   - TransparentFX

@@ -7,9 +7,11 @@ public class FishingRodBehaviour : MonoBehaviour
 
     public float rotationSpeed = 15f;
     public bool isPaused = false;
+    public bool isDisabled = false;
 
     public GameObject fishingHook;
     public GameObject firePoint;
+    
     private void Start()
     {
         StartCoroutine(Rotate());
@@ -17,7 +19,7 @@ public class FishingRodBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isPaused)
+        if (Input.GetMouseButtonDown(0) && !isPaused && !isDisabled)
         {
             isPaused = true;
             Instantiate(fishingHook, new Vector2(firePoint.transform.position.z, firePoint.transform.position.y), transform.rotation);

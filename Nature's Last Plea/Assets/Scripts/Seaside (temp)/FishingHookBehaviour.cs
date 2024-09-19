@@ -25,7 +25,7 @@ public class FishingHookBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Border"))
+        if (other.CompareTag("Border") || other.CompareTag("Log"))
         {
             Debug.Log("Border Reached");
             isReturning = true;

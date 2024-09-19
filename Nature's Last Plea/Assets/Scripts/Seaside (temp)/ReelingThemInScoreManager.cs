@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 public class ReelingThemInScoreManager : MonoBehaviour
 {
-    public TextMeshProUGUI text;
+    public TextMeshPro text;
     public GameObject victoryText;
 
     public float currentScore;
@@ -14,9 +14,10 @@ public class ReelingThemInScoreManager : MonoBehaviour
     public GameObject trashCounter;
 
     public GameObject miniGameObject;
+    public FishingRodBehaviour fishingRodBehaviour;
     void Start()
     {
-        text = GetComponent<TextMeshProUGUI>();
+        text = GetComponent<TextMeshPro>();
 
         InstantiateTrash();
     }
@@ -55,7 +56,7 @@ public class ReelingThemInScoreManager : MonoBehaviour
     private IEnumerator WinMiniGame()
     {
         //win cutscene etc...
-
+        fishingRodBehaviour.isDisabled = true;
         victoryText.SetActive(true);
         yield return new WaitForSeconds(3f);
 
