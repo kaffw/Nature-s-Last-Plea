@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public GameObject mainCamera;
 
     public bool inAction = false;
+
+    public float moveSpeed = 1f;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -20,11 +22,20 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        if (!inAction)
-        {
-            PlayerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-            rb.velocity = PlayerInput;
-        }
+        //if (!inAction)
+        //{
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                PlayerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+                rb.velocity = PlayerInput * (moveSpeed * 2);
+            }
+            else
+            {
+                PlayerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+                rb.velocity = PlayerInput * moveSpeed;
+            }
+            
+        //}
 
     }
 
