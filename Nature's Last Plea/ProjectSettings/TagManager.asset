@@ -9,6 +9,7 @@ TagManager:
   - Trash
   - FishingHook
   - Log
+  - Minigame2
   layers:
   - Default
   - TransparentFX
