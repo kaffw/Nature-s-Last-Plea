@@ -22,7 +22,7 @@ public class FishingRodBehaviour : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !isPaused && !isDisabled)
         {
             isPaused = true;
-            Instantiate(fishingHook, new Vector2(firePoint.transform.position.z, firePoint.transform.position.y), transform.rotation);
+            Instantiate(fishingHook, new Vector2(firePoint.transform.position.x, firePoint.transform.position.y), transform.rotation);
             Debug.Log("mouse action");
         }
     }

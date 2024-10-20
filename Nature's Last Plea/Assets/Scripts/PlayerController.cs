@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Minigame"))
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && !inAction)
             {
                 Instantiate(minigame, new Vector2(mainCamera.transform.position.x, mainCamera.transform.position.y), transform.rotation);
                 inAction = true;
@@ -52,3 +52,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 }
+
+/*
+ * 10/20/24
+Changes: JM
+Added circle collider 2d in character inspector components with trigger... place above capsule collider 2d
+
+before:
+    if (Input.GetKeyDown(KeyCode.E))
+
+after:
+    if (Input.GetKeyDown(KeyCode.E) && !inAction)
+
+ */
