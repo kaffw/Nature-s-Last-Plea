@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public GameObject gamePauseObject;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P)) GamePause();
+        if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.P)) GamePause();
     }
     public void GamePause() //press P or by button
     {
