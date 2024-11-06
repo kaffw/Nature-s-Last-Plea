@@ -1,14 +1,31 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class ObjectiveElementBehaviour : MonoBehaviour
 {
-    public int index; //manually initialized in the inspector
-    public ObjectivesManager objectivesManager;
+    public CinemachineVirtualCamera cvc;
+    private bool inCooldown = false;
 
-    public void ClickObjectiveElement()
+    public void OnClickObjectiveElement()
     {
-        objectivesManager.ShowLocation(index);
+        // Only start the coroutine if not in cooldown
+        if (!inCooldown)
+        {
+            StartCoroutine(StateTraverseCam());
+        }
+    }
+
+    private IEnumerator StateTraverseCam()
+    {
+        inCooldown = true;
+
+        cvc.Priority = 11;
+        yield return new WaitForSecondsRealtime(3f);
+        
+        cvc.Priority = 9;
+        
+        inCooldown = false;
+        
     }
 }
