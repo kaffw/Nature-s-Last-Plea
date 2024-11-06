@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        //if (!inAction)
-        //{
+        if (!inAction)
+        {
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 PlayerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
@@ -34,8 +34,16 @@ public class PlayerController : MonoBehaviour
                 PlayerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
                 rb.velocity = PlayerInput * moveSpeed;
             }
-            
-        //}
+
+            //enable hitbox
+            gameObject.tag = "Player";
+        }
+        else
+        {
+            //disable hitbox
+            gameObject.tag = "Untagged";
+        }
+
 
     }
 
