@@ -41,54 +41,7 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = PlayerInput * moveSpeed;
             }
 
-            if (PlayerInput != Vector2.zero)
-            {
-                if (PlayerInput.y > 0) lastDirection = Vector2.up;
-                else if (PlayerInput.y < 0) lastDirection = Vector2.down;
-                else if (PlayerInput.x > 0) lastDirection = Vector2.right;
-                else if (PlayerInput.x < 0) lastDirection = Vector2.left;
-
-                anim.SetBool("isMoving", false);
-                anim.SetBool("Idle_Front", false);
-                anim.SetBool("Idle_Back", false);
-                anim.SetBool("Idle_Left", false);
-                anim.SetBool("Idle_Right", false);
-
-                if (lastDirection == Vector2.up) anim.SetBool("Idle_Back", true);
-                else if (lastDirection == Vector2.down) anim.SetBool("Idle_Front", true);
-                else if (lastDirection == Vector2.left) anim.SetBool("Idle_Left", true);
-                else if (lastDirection == Vector2.right) anim.SetBool("Idle_Right", true);
-            }
-            //else
-            //{
-            //    anim.SetBool("isMoving", false);
-            //    anim.SetBool("Idle_Front", false);
-            //    anim.SetBool("Idle_Back", false);
-            //    anim.SetBool("Idle_Left", false);
-            //    anim.SetBool("Idle_Right", false);
-
-            //    if (lastDirection == Vector2.up) anim.SetBool("Idle_Back", true);
-            //    else if (lastDirection == Vector2.down) anim.SetBool("Idle_Front", true);
-            //    else if (lastDirection == Vector2.left) anim.SetBool("Idle_Left", true);
-            //    else if (lastDirection == Vector2.right) anim.SetBool("Idle_Right", true);
-            //}
-
-
-            //if (PlayerInput != Vector2.zero)
-            //{
-            //    lastDirection = PlayerInput;
-            //    //animator.SetBool("isMoving", true);
-            //    //animator.SetFloat("MoveX", PlayerInput.x);
-            //    //animator.SetFloat("MoveY", PlayerInput.y);
-            //}
-            //else
-            //{
-            //    //animator.SetBool("isMoving", false);
-
-            //    // Set idle animation based on last direction
-            //    //anim.SetFloat("IdleX", lastDirection.x);
-            //    //anim.SetFloat("IdleY", lastDirection.y);
-            //}
+            UpdateAnim();
 
             //enable hitbox
             gameObject.tag = "Player";
@@ -102,6 +55,34 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void UpdateAnim()
+    {
+        if (PlayerInput != Vector2.zero)
+        {
+            if (PlayerInput.y > 0) lastDirection = Vector2.up;
+            else if (PlayerInput.y < 0) lastDirection = Vector2.down;
+            else if (PlayerInput.x > 0) lastDirection = Vector2.right;
+            else if (PlayerInput.x < 0) lastDirection = Vector2.left;
+
+            anim.SetBool("isMoving", true);
+
+            anim.SetBool("Running_Front", lastDirection == Vector2.down);
+            anim.SetBool("Running_Back", lastDirection == Vector2.up);
+            anim.SetBool("Running_Left", lastDirection == Vector2.left);
+            anim.SetBool("Running_Right", lastDirection == Vector2.right);
+        }
+        else
+        {
+            anim.SetBool("isMoving", false);
+
+            anim.SetBool("Idle_Front", lastDirection == Vector2.down);
+            anim.SetBool("Idle_Back", lastDirection == Vector2.up);
+            anim.SetBool("Idle_Left", lastDirection == Vector2.left);
+            anim.SetBool("Idle_Right", lastDirection == Vector2.right);
+        }
+    }
+
+
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Minigame"))
@@ -113,7 +94,7 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Entry to minigame");
             }
         }
-    }
+    }  
 }
 
 /*
