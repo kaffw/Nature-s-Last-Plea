@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 149261f375664244a8c99b9d6b1dcd63
+guid: 5f2c96d15e360cc4f860ebbe69cda7d7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tree And Bush_0
+      name: House Collection V2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
+        x: 77
+        y: 83
+        width: 69
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eee88ac04ea65534ca4fa38313f082f3
-      internalID: 2145380255
+      spriteID: 8c53e12d134c5db4f83fe609c69109c0
+      internalID: 1128063406
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tree And Bush_1
+      name: House Collection V2_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
-        width: 47
-        height: 28
+        x: 77
+        y: 8
+        width: 69
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77327926d7d90fe40984b414ea8834ae
-      internalID: -759190344
+      spriteID: b8fcefcd66bb161419898be5d6c5cae4
+      internalID: -362841703
       vertices: []
       indices: 
       edges: []
@@ -149,8 +149,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Tree And Bush_0: 2145380255
-      Tree And Bush_1: -759190344
+      House Collection V2_0: 1128063406
+      House Collection V2_1: -362841703
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

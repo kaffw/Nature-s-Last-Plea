@@ -9,6 +9,8 @@ TagManager:
   - Trash
   - FishingHook
   - Log
+  - Behind
+  - Buildings
   layers:
   - Default
   - TransparentFX

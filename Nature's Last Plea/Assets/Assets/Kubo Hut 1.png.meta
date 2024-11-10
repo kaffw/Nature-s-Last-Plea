@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 149261f375664244a8c99b9d6b1dcd63
+guid: 1ea715db1348be84c87a1cbfbf976cec
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tree And Bush_0
+      name: Kubo Hut 1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
+        x: 2
+        y: 88
+        width: 60
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eee88ac04ea65534ca4fa38313f082f3
-      internalID: 2145380255
+      spriteID: 3ede3d25d303a4d47a0011534bececc8
+      internalID: -649197723
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tree And Bush_1
+      name: Kubo Hut 1_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
-        width: 47
-        height: 28
+        x: 4
+        y: 8
+        width: 56
+        height: 69
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77327926d7d90fe40984b414ea8834ae
-      internalID: -759190344
+      spriteID: 5adc126cf32e40f4981c4adf3b045a98
+      internalID: 2079547568
       vertices: []
       indices: 
       edges: []
@@ -149,8 +149,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Tree And Bush_0: 2145380255
-      Tree And Bush_1: -759190344
+      Kubo Hut 1_0: -649197723
+      Kubo Hut 1_1: 2079547568
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
