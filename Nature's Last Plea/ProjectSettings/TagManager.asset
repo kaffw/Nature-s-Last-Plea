@@ -11,6 +11,7 @@ TagManager:
   - Log
   - Behind
   - Buildings
+  - Minigame2
   layers:
   - Default
   - TransparentFX

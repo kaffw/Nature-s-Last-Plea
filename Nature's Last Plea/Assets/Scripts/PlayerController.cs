@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 PlayerInput;
     public Rigidbody2D rb;
 
-    public GameObject minigame;
+    public GameObject minigame, minigame2;
 
     public GameObject mainCamera;
 
@@ -94,7 +94,17 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Entry to minigame");
             }
         }
-    }  
+
+        else if (other.CompareTag("Minigame2"))
+        {
+            if (Input.GetKeyDown(KeyCode.E) && !inAction)
+            {
+                Instantiate(minigame2, new Vector2(mainCamera.transform.position.x, mainCamera.transform.position.y), transform.rotation);
+                inAction = true;
+                Debug.Log("Entry to minigame2");
+            }
+        }
+    }
 }
 
 /*
