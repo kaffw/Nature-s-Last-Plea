@@ -18,14 +18,24 @@ public class TrashFlyBehaviour : MonoBehaviour
         new Color(180f / 255f, 50f / 255f, 50f / 255f)
     };
 
+    private string[] colorCollection;
+    private string colorSet;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        defaultPos = transform.position;
-
         _sr = GetComponent<SpriteRenderer>();
 
-        Color randomColor = colors[UnityEngine.Random.Range(0, colors.Length)];
+        defaultPos = transform.position;
+
+        colorCollection = new string[] { "Green", "Blue", "Red" };
+
+        int rand = UnityEngine.Random.Range(0, colors.Length);
+        
+        Color randomColor = colors[rand];
+        colorSet = colorCollection[rand];
+
+        Debug.Log(colorSet);
 
         _sr.color = randomColor;
     }
@@ -47,6 +57,19 @@ public class TrashFlyBehaviour : MonoBehaviour
             Debug.Log("Bounds Hit");
         }
 
-        
+        if (other.CompareTag("Trash"))
+        {
+            TrashCanColorSetter colorSetter = other.gameObject.GetComponent<TrashCanColorSetter>();
+            string hitColor = colorSetter.GOcolor;
+
+            if (hitColor == colorSet)
+            {
+                Debug.Log("Correct Trash Can");
+            }
+            else
+            {
+                Debug.Log("Incorrect Trash Can");
+            }
+        }
     }
 }
