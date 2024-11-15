@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 6974066671468202539}
   - component: {fileID: 5965138296383636714}
   m_Layer: 0
-  m_Name: Forest Minigame #1
+  m_Name: Forest Minigame # 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

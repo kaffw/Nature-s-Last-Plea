@@ -57,13 +57,17 @@ public class ReelingThemInScoreManager : MonoBehaviour
     {
         //win cutscene etc...
         fishingRodBehaviour.isDisabled = true;
-        victoryText.SetActive(true);
-        yield return new WaitForSeconds(3f);
+        //victoryText.SetActive(true);
+        //yield return new WaitForSeconds(3f);
 
-        PlayerController playerControl = GameObject.Find("Char (temp)").gameObject.GetComponent<PlayerController>();
-        playerControl.inAction = false;
+        PlayerController pController = GameObject.Find("Aurora").GetComponent<PlayerController>();
+        pController.DestroyInteractedObject();
+        pController.inAction = false;
 
-        Destroy(miniGameObject);
+        Debug.Log("You Win! Minigame will be destroyed in 1 second");
+        Destroy(transform.parent.gameObject, 1f);
+
+        //Destroy(miniGameObject);
         yield return null;
     }
 }

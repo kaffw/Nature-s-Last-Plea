@@ -1021,7 +1021,7 @@ GameObject:
   - component: {fileID: 7934318629544220132}
   - component: {fileID: 1592224520938221245}
   m_Layer: 0
-  m_Name: Minigame #1 Border
+  m_Name: Seaside Minigame # 1
   m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
