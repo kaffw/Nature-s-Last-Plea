@@ -21,6 +21,8 @@ public class TrashFlyBehaviour : MonoBehaviour
     private string[] colorCollection;
     private string colorSet;
 
+    private bool isWin = false;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -42,11 +44,25 @@ public class TrashFlyBehaviour : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (!isWin)
         {
-            _rb.velocity = Vector2.up * _velocity;
+            if (Input.GetKey(KeyCode.Space))
+            {
+                _rb.velocity = Vector2.up * _velocity;
+            }
+            transform.Translate(Vector2.right * _velocity * Time.deltaTime);
         }
-        transform.Translate(Vector2.right * _velocity * Time.deltaTime);
+        else
+        {
+            _rb.bodyType = RigidbodyType2D.Static;
+
+            PlayerController pController = GameObject.Find("Aurora").GetComponent<PlayerController>();
+            pController.DestroyInteractedObject();
+            pController.inAction = false;
+
+            Debug.Log("You Win! Minigame will be destroyed in 1 second");
+            Destroy(transform.parent.gameObject, 1f);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -65,6 +81,9 @@ public class TrashFlyBehaviour : MonoBehaviour
             if (hitColor == colorSet)
             {
                 Debug.Log("Correct Trash Can");
+
+                //Enable move after mini game / destroyer of interacted object //copy to every win condition of minigames
+                isWin = true;
             }
             else
             {

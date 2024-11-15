@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
 
     private Dictionary<string, GameObject[]> minigameMap;
 
+    private GameObject currInteractedObject;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -122,9 +124,17 @@ public class PlayerController : MonoBehaviour
 
                 Instantiate(minigameArray[minigameIndex], new Vector2(mainCamera.transform.position.x, mainCamera.transform.position.y), transform.rotation);
                 inAction = true;
+                currInteractedObject = other.gameObject;
                 Debug.Log($"Entry to {other.tag}");
             }
         }
+    }
+
+    public void DestroyInteractedObject()
+    {
+        //clear objective before destroying
+        Debug.Log("interacted objet is destroyed");
+        Destroy(currInteractedObject);
     }
 }
 

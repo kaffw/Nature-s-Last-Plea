@@ -24,8 +24,12 @@ public class SaplingMovement : MonoBehaviour
     private bool isGameOver = false;
     private int score = 0;
 
+    private Rigidbody2D _rb;
+
     void Start()
     {
+        _rb = GetComponent<Rigidbody2D>();
+
         originalPosition = transform.position;
         transform.position = points[startingPoint].position;
         boundaryLeft = -0.3f;
@@ -88,11 +92,23 @@ public class SaplingMovement : MonoBehaviour
 
     void PlantedSafe()
     {
-        isDropping = false;
-        score += 1;
+        //isDropping = false;
+
+        //_rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        //_rb.bodyType = RigidbodyType2D.Static;
+
+        isGameOver = true;
+
+        PlayerController pController = GameObject.Find("Aurora").GetComponent<PlayerController>();
+        pController.DestroyInteractedObject();
+        pController.inAction = false;
+
+        Debug.Log("You Win! Minigame will be destroyed in 1 second");
+        Destroy(transform.parent.gameObject, 1f);
+        //score += 1;
         //Debug.Log("Plante Safe! Score: " + score);
 
-        transform.position = originalPosition;
+        //transform.position = originalPosition;
     }
 
     void GameOver()

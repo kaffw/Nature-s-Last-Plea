@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 65807281}
   m_Layer: 0
   m_Name: Trash Collectible 3
-  m_TagString: CityMinigame2
+  m_TagString: CityMinigame1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36231,7 +36231,7 @@ GameObject:
   - component: {fileID: 510487912}
   m_Layer: 0
   m_Name: Trash Collectible 2
-  m_TagString: CityMinigame2
+  m_TagString: CityMinigame1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75788,7 +75788,7 @@ GameObject:
   - component: {fileID: 2009518699}
   m_Layer: 0
   m_Name: Trash Collectible 1
-  m_TagString: CityMinigame2
+  m_TagString: CityMinigame1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

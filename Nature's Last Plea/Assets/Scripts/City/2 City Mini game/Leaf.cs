@@ -64,6 +64,7 @@ public class Leaf : MonoBehaviour
 
     private IEnumerator PickUpEffect()
     {
+        leafCollider.enabled = false;
 
         Vector3 startPosition = transform.position;
         Vector3 endPosition = startPosition + Vector3.up * moveUpDistance;

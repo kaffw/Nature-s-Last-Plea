@@ -47,8 +47,12 @@ public class SpawnManager : MonoBehaviour
         {
             oneInstance = true;
 
-            Debug.Log("You Win! Minigame will be destroyed in 1 second");
+            //Enable move after mini game / destroyer of interacted object //copy to every win condition of minigames
+            PlayerController pController = GameObject.Find("Aurora").GetComponent<PlayerController>();
+            pController.DestroyInteractedObject();
+            pController.inAction = false;
 
+            Debug.Log("You Win! Minigame will be destroyed in 1 second");
             Destroy(gameObject, 1f);
         }
     }
