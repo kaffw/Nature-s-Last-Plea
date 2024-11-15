@@ -12,7 +12,9 @@ public class SpawnManager : MonoBehaviour
     public int numLeavesToSpawn = 20; // Total number of leaves to spawn
     
     private int rand;
-    
+    public static int totalLeaves;
+    private bool oneInstance = false;
+
     void Start()
     {
         for (int i = 0; i < numLeavesToSpawn; i++)
@@ -34,10 +36,20 @@ public class SpawnManager : MonoBehaviour
             );
 
             Instantiate(trashPrefab[rand], transform.position + spawnPosition, spawnRotation);
+        }
 
-            //GameObject spawnedObject = Instantiate(trashPrefab[rand], transform.position + spawnPosition, spawnRotation);
+        totalLeaves = numLeavesToSpawn;
+    }
 
-            //spawnedObject.transform.SetParent(transform);
+    void Update()
+    {
+        if (totalLeaves <= 0 && !oneInstance)
+        {
+            oneInstance = true;
+
+            Debug.Log("You Win! Minigame will be destroyed in 1 second");
+
+            Destroy(gameObject, 1f);
         }
     }
 }

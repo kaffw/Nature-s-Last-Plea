@@ -861,7 +861,6 @@ GameObject:
   - component: {fileID: 3293351960540650897}
   - component: {fileID: 2595454211349360978}
   - component: {fileID: 1984693249610032425}
-  - component: {fileID: 4109021402377256348}
   m_Layer: 0
   m_Name: City Minigame # 2
   m_TagString: Border
@@ -1136,18 +1135,6 @@ MonoBehaviour:
   - {fileID: 6403895334182584032, guid: 5571ee109c45d764fb0038b08e115aec, type: 3}
   - {fileID: 2545578395262667043, guid: 0e658ea6d269b9c4faa5022dc530f255, type: 3}
   numLeavesToSpawn: 20
---- !u!114 &4109021402377256348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2955403468170608582}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb9a99f6c2e3311499da49ec63bdfafe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3314589579735445546
 GameObject:
   m_ObjectHideFlags: 0
