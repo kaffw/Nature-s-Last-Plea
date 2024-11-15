@@ -9,14 +9,18 @@ public class CanvasManager : MonoBehaviour
     
     public static bool level1Unlocked, level2Unlocked, level3Unlocked;
 
+    public static int unlockedLevels = 1;
+
     private void Start()
     {
-        if (level1Unlocked == false)
-        {
-            level1Unlocked = true;
-            level2Unlocked = false;
-            level3Unlocked = false;
-        }
+        //if (level1Unlocked == false)
+        //{
+        //    level1Unlocked = true;
+        //    level2Unlocked = false;
+        //    level3Unlocked = false;
+        //}
+
+        
     }
     public void Option()
     {
@@ -51,7 +55,8 @@ public class CanvasManager : MonoBehaviour
 
     public void EnterLevel1()
     {
-        if (level1Unlocked) SceneManager.LoadScene(1);
+        //if (level1Unlocked) SceneManager.LoadScene(1);
+        if(unlockedLevels >= 1) SceneManager.LoadScene(1);
         else
         {
             Debug.Log("Level 1 locked");
@@ -60,7 +65,8 @@ public class CanvasManager : MonoBehaviour
     }
     public void EnterLevel2()
     {
-        if (level2Unlocked) SceneManager.LoadScene(2);
+        //if (level2Unlocked) SceneManager.LoadScene(2);
+        if (unlockedLevels >= 2) SceneManager.LoadScene(2);
         else
         {
             Debug.Log("Level 2 locked");
@@ -69,7 +75,8 @@ public class CanvasManager : MonoBehaviour
     }
     public void EnterLevel3()
     {
-        if (level3Unlocked) SceneManager.LoadScene(3);
+        //if (level3Unlocked) SceneManager.LoadScene(3);
+        if (unlockedLevels >= 3) SceneManager.LoadScene(3);
         else
         {
             Debug.Log("Level 3 locked");

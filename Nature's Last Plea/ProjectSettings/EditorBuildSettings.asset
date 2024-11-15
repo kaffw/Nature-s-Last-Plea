@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 1 - Seaside.unity
     guid: a0e9b720ad0eef5448b78ca5ca268ff8
   - enabled: 1
-    path: Assets/Scenes/Level X - Seaside (Temp).unity
-    guid: eedae412f435a9e4590b0506d8eabe17
+    path: Assets/Scenes/Level 2 - Forest.unity
+    guid: 0a668a518d5fa314da9886cff3297ded
+  - enabled: 1
+    path: Assets/Scenes/Level 3 - City.unity
+    guid: fd8ec505952e2d14c81f2bc8b001f6c7
   m_configObjects: {}
