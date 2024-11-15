@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 6b862186297f8074ca575dda12b5227c
   - enabled: 1
-    path: Assets/Scenes/Level X - Objectives.unity
+    path: Assets/Scenes/Level 1 - Seaside.unity
     guid: a0e9b720ad0eef5448b78ca5ca268ff8
   - enabled: 1
-    path: Assets/Scenes/Level 1 - Seaside.unity
+    path: Assets/Scenes/Level X - Seaside (Temp).unity
     guid: eedae412f435a9e4590b0506d8eabe17
   m_configObjects: {}

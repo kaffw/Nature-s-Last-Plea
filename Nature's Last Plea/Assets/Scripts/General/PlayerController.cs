@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
     public Vector2 PlayerInput;
     public Rigidbody2D rb;
 
-    public GameObject minigame, minigame2;
+    //public GameObject minigame, minigame2, minegame3, minigame4, minigame5, minigame6;
+    public GameObject[] seasideMinigame, forestMinigame, cityMinigame;
 
     public GameObject mainCamera;
 
@@ -19,13 +20,27 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private Vector2 lastDirection;
     //
+
+    private Dictionary<string, GameObject[]> minigameMap;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
         mainCamera = GameObject.Find("Main Camera");
+
+        minigameMap = new Dictionary<string, GameObject[]>
+        {
+            { "SeasideMinigame1", seasideMinigame },
+            { "SeasideMinigame2", seasideMinigame },
+            { "ForestMinigame1", forestMinigame },
+            { "ForestMinigame2", forestMinigame },
+            { "CityMinigame1", cityMinigame },
+            { "CityMinigame2", cityMinigame }
+        };
     }
+
     void Update()
     {
         if (!inAction)
@@ -55,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void UpdateAnim()
+    void UpdateAnim() // to be polished soon
     {
         if (PlayerInput != Vector2.zero)
         {
@@ -82,47 +97,34 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Minigame"))
+        if (minigameMap.ContainsKey(other.tag))
         {
             if (Input.GetKeyDown(KeyCode.E) && !inAction)
             {
-                Instantiate(minigame, new Vector2(mainCamera.transform.position.x, mainCamera.transform.position.y), transform.rotation);
-                inAction = true;
-                Debug.Log("Entry to minigame");
-            }
-        }
+                GameObject[] minigameArray = minigameMap[other.tag];
 
-        else if (other.CompareTag("Minigame2"))
-        {
-            if (Input.GetKeyDown(KeyCode.E) && !inAction)
-            {
-                Instantiate(minigame2, new Vector2(mainCamera.transform.position.x, mainCamera.transform.position.y), transform.rotation);
+                int minigameIndex = 0;
+
+                if (other.tag == "CityMinigame2")
+                {
+                    minigameIndex = 1;
+                }
+                else if (other.tag == "SeasideMinigame2")
+                {
+                    minigameIndex = 1;
+                }
+                else if (other.tag == "ForestMinigame2")
+                {
+                    minigameIndex = 1;
+                }
+
+                Instantiate(minigameArray[minigameIndex], new Vector2(mainCamera.transform.position.x, mainCamera.transform.position.y), transform.rotation);
                 inAction = true;
-                Debug.Log("Entry to minigame2");
+                Debug.Log($"Entry to {other.tag}");
             }
         }
     }
 }
 
-/*
- * 10/20/24
-Changes: JM
-Added circle collider 2d in character inspector components with trigger... place above capsule collider 2d
-
-before:
-    if (Input.GetKeyDown(KeyCode.E))
-
-after:
-    if (Input.GetKeyDown(KeyCode.E) && !inAction)
-
- */
-
-/*
-if (PlayerInput.y < 0) anim.SetBool("Idle_Front", true); else anim.SetBool("Idle_Front", false);
-if (PlayerInput.x < 0) anim.SetBool("Idle_Left", true); else anim.SetBool("Idle_Left", false);
-if (PlayerInput.y > 0) anim.SetBool("Idle_Back", true); else anim.SetBool("Idle_Back", false);
-if (PlayerInput.x > 0) anim.SetBool("Idle_Right", true); else anim.SetBool("Idle_Right", false);
- */

@@ -12,6 +12,13 @@ TagManager:
   - Behind
   - Buildings
   - Minigame2
+  - GrateTrash
+  - SeasideMinigame1
+  - SeasideMinigame2
+  - ForestMinigame1
+  - ForestMinigame2
+  - CityMinigame1
+  - CityMinigame2
   layers:
   - Default
   - TransparentFX
