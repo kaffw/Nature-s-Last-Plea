@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -11,17 +12,21 @@ public class CanvasManager : MonoBehaviour
 
     public static int unlockedLevels = 1;
 
-    private void Start()
-    {
-        //if (level1Unlocked == false)
-        //{
-        //    level1Unlocked = true;
-        //    level2Unlocked = false;
-        //    level3Unlocked = false;
-        //}
+    public Image lvl2img, lvl3backimg, lvl3frontimg;
 
-        
+    void Update()
+    {
+        if (unlockedLevels >= 2)
+        {
+            lvl2img.color = new Color32(255, 255, 255, 255);
+        }
+        if (unlockedLevels >= 3)
+        {
+            lvl3backimg.color = new Color32(255, 255, 255, 255);
+            lvl3frontimg.color = new Color32(255, 255, 255, 255);
+        }
     }
+
     public void Option()
     {
         mainMenuCanvas.SetActive(false);
