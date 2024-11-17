@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 65807278}
   - component: {fileID: 65807277}
   - component: {fileID: 65807281}
+  - component: {fileID: 65807282}
   m_Layer: 0
   m_Name: Trash Collectible 3
   m_TagString: SeasideMinigame1
@@ -273,6 +274,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cvc: {fileID: 1028924073}
+--- !u!114 &65807282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65807276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64125a890800c544a80bfb0de13bdf1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  moveSpeed: 2
+  virtualCamera: {fileID: 1635923959}
 --- !u!1 &79701197
 GameObject:
   m_ObjectHideFlags: 0
@@ -36310,6 +36326,7 @@ GameObject:
   - component: {fileID: 510487909}
   - component: {fileID: 510487908}
   - component: {fileID: 510487912}
+  - component: {fileID: 510487913}
   m_Layer: 0
   m_Name: Trash Collectible 2
   m_TagString: SeasideMinigame1
@@ -36448,6 +36465,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cvc: {fileID: 2117446791}
+--- !u!114 &510487913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510487907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64125a890800c544a80bfb0de13bdf1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  moveSpeed: 2
+  virtualCamera: {fileID: 1635923959}
 --- !u!1 &612404204
 GameObject:
   m_ObjectHideFlags: 0
@@ -46847,9 +46879,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2009518699}
-        m_TargetAssemblyTypeName: ObjectiveElementBehaviour, Assembly-CSharp
-        m_MethodName: OnClickObjectiveElement
+      - m_Target: {fileID: 2009518700}
+        m_TargetAssemblyTypeName: LocateObjectiveBehaviour, Assembly-CSharp
+        m_MethodName: MoveToTarget
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -48157,9 +48189,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 510487912}
-        m_TargetAssemblyTypeName: ObjectiveElementBehaviour, Assembly-CSharp
-        m_MethodName: OnClickObjectiveElement
+      - m_Target: {fileID: 510487913}
+        m_TargetAssemblyTypeName: LocateObjectiveBehaviour, Assembly-CSharp
+        m_MethodName: MoveToTarget
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -81057,6 +81089,7 @@ GameObject:
   - component: {fileID: 2009518697}
   - component: {fileID: 2009518698}
   - component: {fileID: 2009518699}
+  - component: {fileID: 2009518700}
   m_Layer: 0
   m_Name: Trash Collectible 1
   m_TagString: SeasideMinigame1
@@ -81124,8 +81157,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2009518694}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.5044675, y: -0.5437137, z: -369.98605}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -81195,6 +81228,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cvc: {fileID: 1560902422}
+--- !u!114 &2009518700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009518694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64125a890800c544a80bfb0de13bdf1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  moveSpeed: 2
+  virtualCamera: {fileID: 1635923959}
 --- !u!1 &2038810434
 GameObject:
   m_ObjectHideFlags: 0
@@ -81369,9 +81417,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 65807281}
-        m_TargetAssemblyTypeName: ObjectiveElementBehaviour, Assembly-CSharp
-        m_MethodName: OnClickObjectiveElement
+      - m_Target: {fileID: 65807282}
+        m_TargetAssemblyTypeName: LocateObjectiveBehaviour, Assembly-CSharp
+        m_MethodName: MoveToTarget
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
