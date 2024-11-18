@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 65807279}
   - component: {fileID: 65807278}
   - component: {fileID: 65807277}
-  - component: {fileID: 65807281}
+  - component: {fileID: 65807282}
   m_Layer: 0
   m_Name: Trash Collectible 3
   m_TagString: CityMinigame2
@@ -260,7 +260,7 @@ Transform:
   - {fileID: 195176927}
   m_Father: {fileID: 1942001185}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &65807281
+--- !u!114 &65807282
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -269,10 +269,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 65807276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1241c2aa698b1444cb46c81e33a97567, type: 3}
+  m_Script: {fileID: 11500000, guid: 64125a890800c544a80bfb0de13bdf1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cvc: {fileID: 1028924073}
+  target: {fileID: 0}
+  moveSpeed: 2
+  virtualCamera: {fileID: 1635923959}
 --- !u!1 &79701197
 GameObject:
   m_ObjectHideFlags: 0
@@ -36313,7 +36315,7 @@ GameObject:
   - component: {fileID: 510487910}
   - component: {fileID: 510487909}
   - component: {fileID: 510487908}
-  - component: {fileID: 510487912}
+  - component: {fileID: 510487913}
   m_Layer: 0
   m_Name: Trash Collectible 2
   m_TagString: CityMinigame2
@@ -36439,7 +36441,7 @@ Transform:
   - {fileID: 1117507210}
   m_Father: {fileID: 1942001185}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &510487912
+--- !u!114 &510487913
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -36448,10 +36450,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 510487907}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1241c2aa698b1444cb46c81e33a97567, type: 3}
+  m_Script: {fileID: 11500000, guid: 64125a890800c544a80bfb0de13bdf1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cvc: {fileID: 2117446791}
+  target: {fileID: 0}
+  moveSpeed: 2
+  virtualCamera: {fileID: 1635923959}
 --- !u!1 &612404204
 GameObject:
   m_ObjectHideFlags: 0
@@ -36759,6 +36763,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630603552}
   m_CullTransparentMesh: 1
+--- !u!1 &654770411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 654770412}
+  - component: {fileID: 654770413}
+  m_Layer: 0
+  m_Name: Objective 1 Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &654770412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654770411}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2049589381}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &654770413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654770411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfac7d6e55b8d8b499ceca6e7e33914a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instantiatingGO: {fileID: 2009518694}
+  text: {fileID: 1888086515}
 --- !u!1 &668817631
 GameObject:
   m_ObjectHideFlags: 0
@@ -41992,9 +42042,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2009518699}
-        m_TargetAssemblyTypeName: ObjectiveElementBehaviour, Assembly-CSharp
-        m_MethodName: OnClickObjectiveElement
+      - m_Target: {fileID: 2009518700}
+        m_TargetAssemblyTypeName: LocateObjectiveBehaviour, Assembly-CSharp
+        m_MethodName: MoveToTarget
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -43302,9 +43352,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 510487912}
-        m_TargetAssemblyTypeName: ObjectiveElementBehaviour, Assembly-CSharp
-        m_MethodName: OnClickObjectiveElement
+      - m_Target: {fileID: 510487913}
+        m_TargetAssemblyTypeName: LocateObjectiveBehaviour, Assembly-CSharp
+        m_MethodName: MoveToTarget
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -75631,6 +75681,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1821235764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1821235765}
+  - component: {fileID: 1821235766}
+  m_Layer: 0
+  m_Name: Objective 2 Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1821235765
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821235764}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2049589381}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1821235766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821235764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfac7d6e55b8d8b499ceca6e7e33914a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instantiatingGO: {fileID: 510487907}
+  text: {fileID: 190870626}
 --- !u!1 &1825387956
 GameObject:
   m_ObjectHideFlags: 0
@@ -75662,6 +75758,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 800278515}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1856918126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1856918127}
+  - component: {fileID: 1856918128}
+  m_Layer: 0
+  m_Name: Objective 3 Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1856918127
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856918126}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2049589381}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1856918128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856918126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfac7d6e55b8d8b499ceca6e7e33914a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instantiatingGO: {fileID: 65807276}
+  text: {fileID: 1313959000}
 --- !u!1 &1888086513
 GameObject:
   m_ObjectHideFlags: 0
@@ -75971,7 +76113,7 @@ GameObject:
   - component: {fileID: 2009518695}
   - component: {fileID: 2009518697}
   - component: {fileID: 2009518698}
-  - component: {fileID: 2009518699}
+  - component: {fileID: 2009518700}
   m_Layer: 0
   m_Name: Trash Collectible 1
   m_TagString: CityMinigame1
@@ -76097,7 +76239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 320773924}
---- !u!114 &2009518699
+--- !u!114 &2009518700
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -76106,10 +76248,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2009518694}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1241c2aa698b1444cb46c81e33a97567, type: 3}
+  m_Script: {fileID: 11500000, guid: 64125a890800c544a80bfb0de13bdf1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cvc: {fileID: 1560902422}
+  target: {fileID: 0}
+  moveSpeed: 2
+  virtualCamera: {fileID: 1635923959}
 --- !u!1 &2038810434
 GameObject:
   m_ObjectHideFlags: 0
@@ -76175,7 +76319,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 654770412}
+  - {fileID: 1821235765}
+  - {fileID: 1856918127}
   m_Father: {fileID: 330816722}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2049589382
@@ -76368,9 +76515,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 65807281}
-        m_TargetAssemblyTypeName: ObjectiveElementBehaviour, Assembly-CSharp
-        m_MethodName: OnClickObjectiveElement
+      - m_Target: {fileID: 65807282}
+        m_TargetAssemblyTypeName: LocateObjectiveBehaviour, Assembly-CSharp
+        m_MethodName: MoveToTarget
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
