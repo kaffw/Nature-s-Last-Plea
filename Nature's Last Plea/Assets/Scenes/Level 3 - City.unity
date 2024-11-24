@@ -35366,6 +35366,7 @@ Transform:
   - {fileID: 693457468}
   - {fileID: 2049589381}
   - {fileID: 800885001}
+  - {fileID: 1989998273}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &336171024
@@ -76101,6 +76102,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9665c6e7f17482d44bc6f4d286f3b872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1989998272
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1989998273}
+  - component: {fileID: 1989998274}
+  m_Layer: 0
+  m_Name: Audio Volume Receiver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1989998273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989998272}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 354.9224, y: 228.18358, z: 2.3606153}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 330816722}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1989998274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989998272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43ce5c9149e12384a90e78577f6abe9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmGameLoopVolume: 0
+  bgmGameSlider: {fileID: 1619449821}
 --- !u!1 &2009518694
 GameObject:
   m_ObjectHideFlags: 0

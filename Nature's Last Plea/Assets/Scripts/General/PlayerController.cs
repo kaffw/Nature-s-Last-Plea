@@ -124,6 +124,7 @@ public class PlayerController : MonoBehaviour
 
                 Instantiate(minigameArray[minigameIndex], new Vector2(mainCamera.transform.position.x, mainCamera.transform.position.y), transform.rotation);
                 inAction = true;
+                //rb.velocity = 0f;
                 currInteractedObject = other.gameObject;
                 Debug.Log($"Entry to {other.tag}");
             }
