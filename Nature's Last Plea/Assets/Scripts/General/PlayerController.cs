@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
             { "CityMinigame1", cityMinigame },
             { "CityMinigame2", cityMinigame }
         };
+
     }
 
     void Update()
@@ -70,6 +71,7 @@ public class PlayerController : MonoBehaviour
             gameObject.tag = "Untagged";
         }
 
+        //if(enableHappy) anim.SetBool("Happy", true);
 
     }
 
@@ -78,9 +80,9 @@ public class PlayerController : MonoBehaviour
         if (PlayerInput != Vector2.zero)
         {
             if (PlayerInput.y > 0) lastDirection = Vector2.up;
-            else if (PlayerInput.y < 0) lastDirection = Vector2.down;
+            else if (PlayerInput.y< 0) lastDirection = Vector2.down;
             else if (PlayerInput.x > 0) lastDirection = Vector2.right;
-            else if (PlayerInput.x < 0) lastDirection = Vector2.left;
+            else if (PlayerInput.x< 0) lastDirection = Vector2.left;
 
             anim.SetBool("isMoving", true);
 

@@ -76,8 +76,9 @@ public class GameTimerManager : MonoBehaviour
     {
         //play victory cutscene here
         inCutscene = true;
-        HUD.SetActive(false);
-        victoryCutscene.SetActive(true);
+        rain.SetActive(false);
+        globalLight.intensity = 1f;
+
         yield return new WaitForSeconds(15f);
         SceneManager.LoadScene(0);
         yield return null;
