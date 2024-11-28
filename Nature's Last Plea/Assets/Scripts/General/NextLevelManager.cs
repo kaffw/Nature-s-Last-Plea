@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 public class NextLevelManager : MonoBehaviour
 {
     private bool oneInstance = false;
+    GameTimerManager gtm;
+
+    void Awake()
+    {
+        gtm = GameObject.Find("GameTimerManager").GetComponent<GameTimerManager>();
+    }
 
     void Update()
     {
@@ -17,7 +23,8 @@ public class NextLevelManager : MonoBehaviour
             if (CanvasManager.unlockedLevels == SceneManager.GetActiveScene().buildIndex) CanvasManager.unlockedLevels++;
             else Debug.Log("Area has already been cleared");
 
-            SceneManager.LoadScene(0);
+            //SceneManager.LoadScene(0);
+            StartCoroutine(gtm.VictoryCutscene());
         }
     }
 }
