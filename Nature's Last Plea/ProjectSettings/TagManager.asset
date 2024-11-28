@@ -19,6 +19,9 @@ TagManager:
   - ForestMinigame2
   - CityMinigame1
   - CityMinigame2
+  - Seed
+  - Water
+  - Sunlight
   layers:
   - Default
   - TransparentFX
