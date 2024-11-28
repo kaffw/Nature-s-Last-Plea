@@ -5,10 +5,9 @@ using TMPro; // For TextMeshPro
 
 public class ItemCollector : MonoBehaviour
 {
-    private int collectionStage = 0; // Tracks which item is expected next: 0 = seed, 1 = water, 2 = sunlight
-    public bool gameOver = false; // Flag to check if the game is over
-
-    public TextMeshProUGUI statusText; // Reference to the UI TextMeshProUGUI object (drag this in Inspector)
+    private int collectionStage = 0;
+    public bool gameOver = false;
+    public TextMeshProUGUI statusText;
 
     void Start()
     {
@@ -20,6 +19,12 @@ public class ItemCollector : MonoBehaviour
         if (gameOver)
         {
             return;
+        }
+
+        if (!other.CompareTag("Trash") && !other.CompareTag("Seed") &&
+            !other.CompareTag("Water") && !other.CompareTag("Sunlight"))
+        {
+            return; // Ignore other colliders
         }
 
         if (other.CompareTag("Seed") && collectionStage == 0)
@@ -45,13 +50,13 @@ public class ItemCollector : MonoBehaviour
         {
             UpdateStatusText("Game Over! You hit trash.");
             Debug.Log("Trash");
-            EndGame(); // Call method to handle game over
+            //EndGame(); // Call method to handle game over
         }
         else if (collectionStage >= 0 && collectionStage <= 2) // Ensure correct sequence
         {
             UpdateStatusText("Wrong item collected! Expected: " + GetExpectedItem());
             Debug.Log("Wrong item collected");
-            EndGame(); // Call method to handle wrong collection
+            //EndGame(); // Call method to handle wrong collection
         }
 
         Destroy(other.gameObject); // Destroy the collected item

@@ -14,9 +14,13 @@ public class FMG2SpawnManager : MonoBehaviour
     private float timer; // Timer to track spawn intervals
     private bool isGameActive; // Flag to track if the game is active
 
+    // Parent transform for relative positioning
+    private Transform parentTransform;
+
     void Start()
     {
         isGameActive = true;
+        parentTransform = transform; // Use this object's transform as the parent
         Debug.Log("Game Started");
     }
 
@@ -43,7 +47,9 @@ public class FMG2SpawnManager : MonoBehaviour
 
     public void EndGame()
     {
-        isGameActive = false; // Deactivate the game
+        //isGameActive = false; // Deactivate the game
+        isGameActive = false;
+        StartCoroutine(WinMiniGame());
     }
 
     void SpawnItem()
@@ -84,7 +90,9 @@ public class FMG2SpawnManager : MonoBehaviour
                 int attempts = 0;
                 do
                 {
-                    spawnPosition = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), spawnY, 0);
+                    // Calculate a position relative to the parent
+                    spawnPosition = parentTransform.position +
+                                    new Vector3(Random.Range(-spawnRangeX, spawnRangeX), spawnY, 0);
                     attempts++;
                 }
                 while (IsPositionTooClose(spawnPosition, spawnPositions) && attempts < 10);
@@ -107,5 +115,17 @@ public class FMG2SpawnManager : MonoBehaviour
             }
         }
         return false;
+    }
+
+    private IEnumerator WinMiniGame()
+    {
+        PlayerController pController = GameObject.Find("Aurora").GetComponent<PlayerController>();
+        pController.DestroyInteractedObject();
+        pController.inAction = false;
+
+        Debug.Log("You Win! Minigame will be destroyed in 1 second");
+        Destroy(transform.parent.gameObject, 1f);
+
+        yield return null;
     }
 }

@@ -105,6 +105,8 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E) && !inAction)
             {
+                rb.velocity = Vector2.zero; //disable movement upon pressing E
+
                 GameObject[] minigameArray = minigameMap[other.tag];
 
                 int minigameIndex = 0;
@@ -123,6 +125,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 Instantiate(minigameArray[minigameIndex], new Vector2(mainCamera.transform.position.x, mainCamera.transform.position.y), transform.rotation);
+                
                 inAction = true;
                 //rb.velocity = 0f;
                 currInteractedObject = other.gameObject;
