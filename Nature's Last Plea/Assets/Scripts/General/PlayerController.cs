@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 
     //public GameObject minigame, minigame2, minegame3, minigame4, minigame5, minigame6;
     public GameObject[] seasideMinigame, forestMinigame, cityMinigame;
+    public GameObject sapling;
 
     public GameObject mainCamera;
 
@@ -138,6 +139,11 @@ public class PlayerController : MonoBehaviour
     {
         //clear objective before destroying
         Debug.Log("interacted objet is destroyed");
+
+        if (currInteractedObject.CompareTag("ForestMinigame1") || currInteractedObject.CompareTag("ForestMinigame2"))
+        {
+            Instantiate(sapling, currInteractedObject.transform.position, currInteractedObject.transform.rotation);
+        }
         Destroy(currInteractedObject);
     }
 }
