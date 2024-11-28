@@ -41773,7 +41773,7 @@ GameObject:
   - component: {fileID: 679984731}
   - component: {fileID: 679984730}
   m_Layer: 0
-  m_Name: Rain
+  m_Name: Rain Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
