@@ -9,8 +9,19 @@ public class AudioVolumeManager : MonoBehaviour
     public static float bgmGlobalVolume;
     public Slider bgmSlider;
     public AudioVolumeReceiver bgmGameSceneVolume;
-
+    
+    public static bool volumeInitialized = false;
+    
     Scene currScene;
+
+    void Awake()
+    {
+        if (!volumeInitialized)
+        {
+            volumeInitialized = true;
+            bgmGlobalVolume = 1f;
+        }
+    }
 
     void Update()
     {

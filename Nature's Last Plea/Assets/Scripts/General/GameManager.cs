@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.P)) GamePause();
+        if (Input.GetKeyDown(KeyCode.P)) GamePause(); //Input.GetKeyDown(KeyCode.Tab) || 
 
         if (isPaused)
         {
@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GamePause() //press P or by button
+    private void GamePause() //press P or by button
     {
         //pause canvas set active true... if any
         Time.timeScale = (Time.timeScale > 0) ? 0 : 1; // Pause/Unpause
