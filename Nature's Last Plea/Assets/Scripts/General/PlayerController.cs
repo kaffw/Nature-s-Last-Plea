@@ -140,9 +140,6 @@ public class PlayerController : MonoBehaviour
     public void DestroyInteractedObject()
     {
         //clear objective before destroying
-        Debug.Log("interacted objet is destroyed");
-
-
 
         if (currInteractedObject.CompareTag("ForestMinigame1") || currInteractedObject.CompareTag("ForestMinigame2"))
         {

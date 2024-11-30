@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
 {
-    public GameObject mainMenuCanvas, optionCanvas, selectLevelCanvas;
+    public GameObject mainMenuCanvas, optionCanvas, selectLevelCanvas, creditsCanvas;
     
     public static bool level1Unlocked, level2Unlocked, level3Unlocked;
 
@@ -31,6 +31,7 @@ public class CanvasManager : MonoBehaviour
     {
         mainMenuCanvas.SetActive(false);
         selectLevelCanvas.SetActive(false);
+        creditsCanvas.SetActive(false);
 
         optionCanvas.SetActive(true);
     }
@@ -46,7 +47,7 @@ public class CanvasManager : MonoBehaviour
     {
         mainMenuCanvas.SetActive(false);
         optionCanvas.SetActive(false);
-
+        creditsCanvas.SetActive(false);
 
         selectLevelCanvas.SetActive(true);
     }
@@ -56,6 +57,22 @@ public class CanvasManager : MonoBehaviour
         mainMenuCanvas.SetActive(true);
 
         selectLevelCanvas.SetActive(false);
+    }
+
+    public void Credits()
+    {
+        mainMenuCanvas.SetActive(false);
+        selectLevelCanvas.SetActive(false);
+        optionCanvas.SetActive(false);
+
+        creditsCanvas.SetActive(true);
+    }
+
+    public void BackButtonCredits()
+    {
+        mainMenuCanvas.SetActive(true);
+
+        creditsCanvas.SetActive(false);
     }
 
     public void EnterLevel1()
