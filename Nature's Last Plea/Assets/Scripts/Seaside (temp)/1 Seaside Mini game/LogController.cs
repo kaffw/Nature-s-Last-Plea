@@ -10,6 +10,13 @@ public class LogController : MonoBehaviour
 
     public float x, y;
 
+    SpriteRenderer sr;
+
+    void Awake()
+    {
+        sr = GetComponent<SpriteRenderer>();
+    }
+
     void Start()
     {
         objectManager = GameObject.Find("Obstacles Manager");
@@ -26,10 +33,12 @@ public class LogController : MonoBehaviour
         if (directionRight)
         {
             transform.position += Vector3.right * speed * Time.deltaTime;
+            sr.flipX = false;
         }
         else
         {
             transform.position -= Vector3.right * speed * Time.deltaTime;
+            sr.flipX = true;
         }
     }
     void OnTriggerEnter2D(Collider2D other)

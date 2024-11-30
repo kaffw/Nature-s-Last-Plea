@@ -783,7 +783,7 @@ GameObject:
   - component: {fileID: 8119204464582257941}
   - component: {fileID: 5390257877400008920}
   m_Layer: 0
-  m_Name: Log
+  m_Name: Fish
   m_TagString: Log
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -799,7 +799,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.425, y: -0.443, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.04205639, y: 0.08411278, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4049350071913685646}
@@ -845,7 +845,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 105
-  m_Sprite: {fileID: -1056562680, guid: c3f774ccaaebc2b479af6044eef4532c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 54c5fe358ed748c4b940a0b8a2776c77, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -888,18 +888,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000000018626451, y: -0.0089946315}
+  m_Offset: {x: 0.025838375, y: -0.006123781}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.09}
+    oldSize: {x: 3, y: 2}
     newSize: {x: 0.16, y: 0.09}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1405116, y: 0.07201074}
+  m_Size: {x: 2.098445, y: 0.8701129}
   m_EdgeRadius: 0
 --- !u!114 &8119204464582257941
 MonoBehaviour:
@@ -1488,7 +1488,7 @@ GameObject:
   - component: {fileID: 8532069311280439511}
   - component: {fileID: 2403010274979653082}
   m_Layer: 0
-  m_Name: Log (1)
+  m_Name: Turtle
   m_TagString: Log
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1504,7 +1504,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.4258, y: -0.44, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.04205639, y: 0.08411278, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4049350071913685646}
@@ -1550,7 +1550,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 105
-  m_Sprite: {fileID: -1056562680, guid: c3f774ccaaebc2b479af6044eef4532c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f5de32053730233429e338c06b57fc65, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1593,18 +1593,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00037480146, y: -0.009744182}
+  m_Offset: {x: 0.13716078, y: -0.0037641525}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.09}
+    oldSize: {x: 3, y: 2}
     newSize: {x: 0.16, y: 0.09}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.13976209, y: 0.07051164}
+  m_Size: {x: 2.1250582, y: 1.0990381}
   m_EdgeRadius: 0
 --- !u!114 &8532069311280439511
 MonoBehaviour:
