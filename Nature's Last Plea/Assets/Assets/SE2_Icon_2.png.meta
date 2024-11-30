@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 64e19af2ce4d5834eb949ff7b016da75
+guid: 3fd4b9e7a7864e843869c18272b4ce08
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pier_0
+      name: SE2_Icon_2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 32
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,41 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fb9299c63c744245ae9a862f750b6b3
-      internalID: -1339619881
+      spriteID: c259d7f1bcf45f6449bb7fff524f5680
+      internalID: 1116449974
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pier_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 952e8f1774d05084a83de03c549ad539
-      internalID: -680557611
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pier_2
+      name: SE2_Icon_2_1
       rect:
         serializedVersion: 2
         x: 32
         y: 32
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,83 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3ee8c0cf49db114bb76f14c09b3bd44
-      internalID: 843123739
+      spriteID: bb16620fbe0b931449ae9600b311d8f5
+      internalID: -1881386133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pier_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f771edde67ba7034698f2756d9d59cc6
-      internalID: -312253706
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pier_4
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de94a41d7cdfd7e47a63186febe75575
-      internalID: 2060431907
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pier_5
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8dab424550d18fd428aee2cb2a8199aa
-      internalID: 1291098685
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pier_6
+      name: SE2_Icon_2_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,41 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e6eb80e4a0189343a4425ab20d5ba6f
-      internalID: -1138115037
+      spriteID: c52a9133b8712e24caed2d0427378a39
+      internalID: -1644488423
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pier_7
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a79101d0c4dee0d4cb6af7416e56d4c8
-      internalID: 477624308
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pier_8
+      name: SE2_Icon_2_3
       rect:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,8 +174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c10283459e56a3d41ab40fbfb8097640
-      internalID: -1734119701
+      spriteID: 8dcb2c96ecc311346a44d22752fb6b87
+      internalID: 679123229
       vertices: []
       indices: 
       edges: []
@@ -296,15 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Pier_0: -1339619881
-      Pier_1: -680557611
-      Pier_2: 843123739
-      Pier_3: -312253706
-      Pier_4: 2060431907
-      Pier_5: 1291098685
-      Pier_6: -1138115037
-      Pier_7: 477624308
-      Pier_8: -1734119701
+      SE2_Icon_2_0: 1116449974
+      SE2_Icon_2_1: -1881386133
+      SE2_Icon_2_2: -1644488423
+      SE2_Icon_2_3: 679123229
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
