@@ -142,6 +142,8 @@ public class PlayerController : MonoBehaviour
         //clear objective before destroying
         Debug.Log("interacted objet is destroyed");
 
+
+
         if (currInteractedObject.CompareTag("ForestMinigame1") || currInteractedObject.CompareTag("ForestMinigame2"))
         {
             Instantiate(sapling, currInteractedObject.transform.position, currInteractedObject.transform.rotation);

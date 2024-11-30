@@ -26,11 +26,25 @@ public class CharacterOrderLayerManager : MonoBehaviour
         }
     }
 
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("Behind"))
+        {
+            playerSR.sortingOrder = 2;
+
+            SpriteRenderer objSR = other.gameObject.transform.parent.gameObject.GetComponent<SpriteRenderer>();
+
+            Color color = objSR.color;
+            color.a = 0.39f;
+            objSR.color = color;
+        }
+    }
+
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Behind"))
         {
-            playerSR.sortingOrder = 4;
+            playerSR.sortingOrder = 5;
 
             SpriteRenderer objSR = other.gameObject.transform.parent.gameObject.GetComponent<SpriteRenderer>();
 
@@ -40,21 +54,3 @@ public class CharacterOrderLayerManager : MonoBehaviour
         }
     }
 }
-
-/*
-void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject == player)
-        {
-            playerSR.sortingOrder = 2;
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject == player)
-        {
-            playerSR.sortingOrder = 4;
-        }
-    }
-*/
