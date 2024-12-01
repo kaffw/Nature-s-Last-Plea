@@ -11,6 +11,13 @@ public class GameManager : MonoBehaviour
     private bool isPaused = false;
     private int prevKey = 0;
 
+    PlayerController auroraController;
+
+    void Awake()
+    {
+        auroraController = GameObject.Find("Aurora").GetComponent<PlayerController>();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P)) GamePause(); //Input.GetKeyDown(KeyCode.Tab) || 
@@ -51,10 +58,17 @@ public class GameManager : MonoBehaviour
 
     private void GamePause() //press P or by button
     {
+        //Discarded
         //pause canvas set active true... if any
-        Time.timeScale = (Time.timeScale > 0) ? 0 : 1; // Pause/Unpause
-        isPaused = Time.timeScale == 0;
-        gamePauseObject.SetActive(Time.timeScale == 0);
+        //Time.timeScale = (Time.timeScale > 0) ? 0 : 1; // Pause/Unpause
+        //isPaused = Time.timeScale == 0;
+        //gamePauseObject.SetActive(Time.timeScale == 0);
+
+        //Disables player movement instead of actual game pause
+        isPaused = (isPaused == true) ? false : true;
+        auroraController.inAction = isPaused;
+        gamePauseObject.SetActive(isPaused);
+
         SetPauseState(0);
     }
 

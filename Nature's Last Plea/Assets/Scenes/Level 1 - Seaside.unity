@@ -36835,6 +36835,7 @@ MonoBehaviour:
   victoryCutscene: {fileID: 1504006930}
   defeatCutscene: {fileID: 1589551121}
   isCalled: 0
+  timerImage: {fileID: 994902771}
 --- !u!1001 &597627704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37053,7 +37054,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 33afda9cd207f6b4d96218954c598708, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2725b4682814e6e45b4d7da96075626b, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -48686,7 +48687,7 @@ RectTransform:
   m_GameObject: {fileID: 994902769}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.624333, y: 0.9605123, z: 0.8537887}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 613115936}
@@ -48694,7 +48695,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.000030517578, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &994902771
@@ -48717,14 +48718,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 33afda9cd207f6b4d96218954c598708, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2725b4682814e6e45b4d7da96075626b, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &994902772

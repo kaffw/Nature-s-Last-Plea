@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameTimerManager : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class GameTimerManager : MonoBehaviour
     private float intensityTime = 1f;
 
     private bool inCutscene = false;
+
+    public Image timerImage;
 
     void Awake()
     {
@@ -39,6 +42,8 @@ public class GameTimerManager : MonoBehaviour
     void Update()
     {
         gameTimer += Time.deltaTime;
+
+        UpdateImage();
 
         if (gameTimer >= 60 * 1.5 && !isCalled)
         {
@@ -93,5 +98,10 @@ public class GameTimerManager : MonoBehaviour
         yield return new WaitForSeconds(15f);
         SceneManager.LoadScene(0);
         yield return null;
+    }
+
+    public void UpdateImage()
+    {
+        timerImage.fillAmount = gameTimer / 180f;
     }
 }
