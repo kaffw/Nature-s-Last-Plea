@@ -100,8 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  reelSpeed: 3
+  reelSpeed: 6
   isReturning: 0
+  fishingPause: {fileID: 0}
   scoreManager: {fileID: 0}
 --- !u!50 &2976841138149516791
 Rigidbody2D:
