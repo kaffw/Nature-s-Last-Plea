@@ -23,6 +23,7 @@ public class NextLevelManager : MonoBehaviour
             if (CanvasManager.unlockedLevels == SceneManager.GetActiveScene().buildIndex) CanvasManager.unlockedLevels++;
             else Debug.Log("Area has already been cleared");
 
+            gtm.objCompleted = true;
             //SceneManager.LoadScene(0);
             StartCoroutine(gtm.VictoryCutscene());
         }

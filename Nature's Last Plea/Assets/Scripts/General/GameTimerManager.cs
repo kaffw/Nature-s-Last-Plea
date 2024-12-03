@@ -24,11 +24,14 @@ public class GameTimerManager : MonoBehaviour
 
     public Image timerImage;
 
+    public bool objCompleted;
+    
     void Awake()
     {
         rain = GameObject.Find("Rain Particle System");
         globalLight = GameObject.Find("GlobalLight").GetComponent<Light2D>();
         HUD = GameObject.Find("HUD Canvas");
+        objCompleted = false;
     }
 
     void Start()
@@ -43,7 +46,7 @@ public class GameTimerManager : MonoBehaviour
     {
         gameTimer += Time.deltaTime;
 
-        UpdateImage();
+        if(gameTimer <= 180 && !objCompleted) UpdateImage();
 
         if (gameTimer >= 60 * 1.5 && !isCalled)
         {
