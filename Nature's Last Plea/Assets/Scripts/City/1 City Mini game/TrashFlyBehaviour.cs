@@ -23,17 +23,23 @@ public class TrashFlyBehaviour : MonoBehaviour
 
     private bool isWin = false;
 
+    public AudioClip jumpSFX; // Jump sound effect
+    public AudioClip fallSFX; // Fall sound effect
+    public AudioClip winSFX; // win sound effect
+    private AudioSource audioSource;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _sr = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>(); // Get AudioSource component
 
         defaultPos = transform.position;
 
         colorCollection = new string[] { "Green", "Blue", "Red" };
 
         int rand = UnityEngine.Random.Range(0, colors.Length);
-        
+
         Color randomColor = colors[rand];
         colorSet = colorCollection[rand];
 
@@ -49,6 +55,12 @@ public class TrashFlyBehaviour : MonoBehaviour
             if (Input.GetKey(KeyCode.Space))
             {
                 _rb.velocity = Vector2.up * _velocity;
+
+                // Play jump sound effect
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.PlayOneShot(jumpSFX);
+                }
             }
             transform.Translate(Vector2.right * _velocity * Time.deltaTime);
         }
@@ -70,6 +82,10 @@ public class TrashFlyBehaviour : MonoBehaviour
         if (other.CompareTag("Border"))
         {
             transform.position = defaultPos;
+
+            // Play fall sound effect
+            audioSource.PlayOneShot(fallSFX);
+
             Debug.Log("Bounds Hit");
         }
 
@@ -81,7 +97,8 @@ public class TrashFlyBehaviour : MonoBehaviour
             if (hitColor == colorSet)
             {
                 Debug.Log("Correct Trash Can");
-
+                // Play fall sound effect
+                audioSource.PlayOneShot(winSFX);
                 //Enable move after mini game / destroyer of interacted object //copy to every win condition of minigames
                 isWin = true;
             }
