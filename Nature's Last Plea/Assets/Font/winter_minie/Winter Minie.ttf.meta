@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 37075b2ce4ae32f45b570ac7782029d4
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Winter Minie
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 123b8a20e43743846b359b0d61bb84a8, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
