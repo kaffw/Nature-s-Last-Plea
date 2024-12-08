@@ -3,7 +3,10 @@ guid: 9754544162a702b46bb7b47e7bf5435b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - jumpSFX: {fileID: 8300000, guid: a733154d52e1e8b4b95cfa14dff2c0ae, type: 3}
+  - incorrectSFX: {fileID: 8300000, guid: 2567753597ecf7d478ba9f8b7968bce9, type: 3}
+  - correctSFX: {fileID: 8300000, guid: a03e4feaa8a2630439dd41cbcdfbfe76, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

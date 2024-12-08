@@ -9,8 +9,20 @@ public class ItemCollector : MonoBehaviour
     public bool gameOver = false;
     public TextMeshProUGUI statusText;
 
+    // Audio Clips for Sound Effects
+    public AudioClip sfxA; // Sound effect for Seed, Water, Sunlight
+    public AudioClip sfxB; // Sound effect for Trash
+    private AudioSource audioSource;
+
     void Start()
     {
+        // Get the AudioSource component
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            Debug.LogError("AudioSource component missing from this game object.");
+        }
+
         UpdateStatusText("Awaiting Seed");
     }
 
@@ -30,33 +42,38 @@ public class ItemCollector : MonoBehaviour
         if (other.CompareTag("Seed") && collectionStage == 0)
         {
             collectionStage++;
+            PlaySound(sfxA);
             UpdateStatusText("Seed collected! Next: Water");
             Debug.Log("Seed");
         }
         else if (other.CompareTag("Water") && collectionStage == 1)
         {
             collectionStage++;
+            PlaySound(sfxA);
             UpdateStatusText("Water collected! Next: Sunlight");
             Debug.Log("Water");
         }
         else if (other.CompareTag("Sunlight") && collectionStage == 2)
         {
             collectionStage++;
+            PlaySound(sfxA);
             UpdateStatusText("Sunlight collected! Goal Complete!");
             Debug.Log("Sunlight");
             CompleteGame(); // Call method to handle game completion
         }
         else if (other.CompareTag("Trash"))
         {
+            PlaySound(sfxB);
             UpdateStatusText("Game Over! You hit trash.");
             Debug.Log("Trash");
-            //EndGame(); // Call method to handle game over
+            EndGame(); // Call method to handle game over
         }
         else if (collectionStage >= 0 && collectionStage <= 2) // Ensure correct sequence
         {
+            PlaySound(sfxB);
             UpdateStatusText("Wrong item collected! Expected: " + GetExpectedItem());
             Debug.Log("Wrong item collected");
-            //EndGame(); // Call method to handle wrong collection
+            EndGame(); // Call method to handle wrong collection
         }
 
         Destroy(other.gameObject); // Destroy the collected item
@@ -82,6 +99,14 @@ public class ItemCollector : MonoBehaviour
         if (statusText != null)
         {
             statusText.text = message; // Update the UI text
+        }
+    }
+
+    void PlaySound(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+        {
+            audioSource.PlayOneShot(clip); // Play the provided sound effect
         }
     }
 

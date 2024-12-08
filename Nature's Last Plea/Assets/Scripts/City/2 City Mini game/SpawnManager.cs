@@ -10,7 +10,7 @@ public class SpawnManager : MonoBehaviour
     //public float spawnXOffset = 1.5f; // Controls the range on the X axis
     //public float spawnYOffset = 3f; // Controls the range on the Y axis
     public int numLeavesToSpawn = 20; // Total number of leaves to spawn
-    
+
     private int rand;
     public static int totalLeaves;
     private bool oneInstance = false;

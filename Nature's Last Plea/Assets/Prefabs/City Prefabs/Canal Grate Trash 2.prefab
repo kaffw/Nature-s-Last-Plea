@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveUpDistance: 1
   fadeDuration: 1.5
+  removeLeafSFX: {fileID: 8300000, guid: 6a7a448d27402ee4396a7e0f79bdcbd3, type: 3}
 --- !u!60 &9143810154006494755
 PolygonCollider2D:
   m_ObjectHideFlags: 0

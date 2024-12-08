@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 36538d193cb1119478aa267890c64fb4
+guid: 92536c1fa93be3c4a94ebd649497e78b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - removeLeafSFX: {fileID: 8300000, guid: 6a7a448d27402ee4396a7e0f79bdcbd3, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

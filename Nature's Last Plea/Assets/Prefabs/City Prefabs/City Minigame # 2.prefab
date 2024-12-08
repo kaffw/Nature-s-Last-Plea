@@ -1135,6 +1135,7 @@ MonoBehaviour:
   - {fileID: 6403895334182584032, guid: 5571ee109c45d764fb0038b08e115aec, type: 3}
   - {fileID: 2545578395262667043, guid: 0e658ea6d269b9c4faa5022dc530f255, type: 3}
   numLeavesToSpawn: 20
+  leafDisappearSFX: {fileID: 8300000, guid: 6a7a448d27402ee4396a7e0f79bdcbd3, type: 3}
 --- !u!1 &3314589579735445546
 GameObject:
   m_ObjectHideFlags: 0

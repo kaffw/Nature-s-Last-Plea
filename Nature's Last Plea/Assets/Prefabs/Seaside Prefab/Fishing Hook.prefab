@@ -104,6 +104,8 @@ MonoBehaviour:
   isReturning: 0
   fishingPause: {fileID: 0}
   scoreManager: {fileID: 0}
+  attachTrashSFX: {fileID: 8300000, guid: c6a4c3a1bb71cb94f9aac680c101e19b, type: 3}
+  otherSFX: {fileID: 8300000, guid: a03e4feaa8a2630439dd41cbcdfbfe76, type: 3}
 --- !u!50 &2976841138149516791
 Rigidbody2D:
   serializedVersion: 4

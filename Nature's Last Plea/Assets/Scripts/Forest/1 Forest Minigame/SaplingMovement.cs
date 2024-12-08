@@ -19,16 +19,20 @@ public class SaplingMovement : MonoBehaviour
     private int i;
 
     private Vector2 originalPosition;
-    //public LayerMask collisionLayer;
 
     private bool isGameOver = false;
-    private int score = 0;
 
     private Rigidbody2D _rb;
+
+    // Sound effect references
+    public AudioClip successSound; // Sound when planted in water area
+    public AudioClip failSound;    // Sound when dropped to the ground
+    private AudioSource audioSource;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>(); // Ensure there's an AudioSource component
 
         originalPosition = transform.position;
         transform.position = points[startingPoint].position;
@@ -58,7 +62,6 @@ public class SaplingMovement : MonoBehaviour
 
     void MoveHorizontally()
     {
-        //transform.localPosition = Vector2.MoveTowards(transform.localPosition, leftBound.transform.localPosition, moveSpeed * Time.deltaTime);
         if (Vector2.Distance(transform.position, points[i].position) < 0.02f)
         {
             i++;
@@ -78,25 +81,20 @@ public class SaplingMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Log"))
+        if (other.CompareTag("Log")) // Fail condition
         {
-            //Debug.Log("Log");
+            PlaySound(failSound);
             GameOver();
         }
-        else if (other.CompareTag("Border")) // new tag for goal spots
+        else if (other.CompareTag("Border")) // Success condition
         {
-            //Debug.Log("Border");
+            PlaySound(successSound);
             PlantedSafe();
         }
     }
 
     void PlantedSafe()
     {
-        //isDropping = false;
-
-        //_rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        //_rb.bodyType = RigidbodyType2D.Static;
-
         isGameOver = true;
 
         PlayerController pController = GameObject.Find("Aurora").GetComponent<PlayerController>();
@@ -105,20 +103,20 @@ public class SaplingMovement : MonoBehaviour
 
         Debug.Log("You Win! Minigame will be destroyed in 1 second");
         Destroy(transform.parent.gameObject, 1f);
-        //score += 1;
-        //Debug.Log("Plante Safe! Score: " + score);
-
-        //transform.position = originalPosition;
     }
 
     void GameOver()
     {
         isGameOver = true;
-        //Debug.Log("Game Over! Final Score: " + score);
+        Debug.Log("Game Over!");
+    }
+
+    // Play the appropriate sound
+    void PlaySound(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
     }
 }
-/*
- // new tag for goal spots
-- Sapling Planting Manager
-- - instantiate goal spots
- */

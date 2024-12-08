@@ -10,6 +10,8 @@ public class Leaf : MonoBehaviour
     public float moveUpDistance = 1.0f; // Distance the object will move up
     public float fadeDuration = 1.5f; // Duration of the fade-out effect
 
+    public AudioClip removeLeafSFX; // Sound effect for removing a leaf
+    private AudioSource audioSource;
     void Start()
     {
         // Reset the counter if this is the first leaf spawned
@@ -20,6 +22,7 @@ public class Leaf : MonoBehaviour
 
         leafRenderer = GetComponent<Renderer>();
         leafCollider = GetComponent<PolygonCollider2D>(); // Cache the Collider component
+        audioSource = GetComponent<AudioSource>();
     }
 
     //private void OnMouseDown()
@@ -57,6 +60,7 @@ public class Leaf : MonoBehaviour
             if (hit.collider.isTrigger && hit.collider.CompareTag("GrateTrash"))
             {
                 StartCoroutine(PickUpEffect());  // Trigger the effect only if conditions are met
+                audioSource.PlayOneShot(removeLeafSFX);
                 break;  // Exit loop once the effect is triggered for the first valid object
             }
         }
