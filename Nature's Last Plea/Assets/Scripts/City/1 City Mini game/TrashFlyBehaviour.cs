@@ -23,16 +23,19 @@ public class TrashFlyBehaviour : MonoBehaviour
 
     private bool isWin = false;
 
-    public AudioClip jumpSFX; // Jump sound effect
-    public AudioClip fallSFX; // Fall sound effect
-    public AudioClip winSFX; // win sound effect
-    private AudioSource audioSource;
+    //public AudioClip jumpSFX; // Jump sound effect //1
+    //public AudioClip fallSFX; // Fall sound effect //4
+    //public AudioClip winSFX; // win sound effect //6
+    //private AudioSource audioSource;
+
+    AudioManager am;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _sr = GetComponent<SpriteRenderer>();
-        audioSource = GetComponent<AudioSource>(); // Get AudioSource component
+        //audioSource = GetComponent<AudioSource>(); // Get AudioSource component
+        am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
         defaultPos = transform.position;
 
@@ -57,10 +60,11 @@ public class TrashFlyBehaviour : MonoBehaviour
                 _rb.velocity = Vector2.up * _velocity;
 
                 // Play jump sound effect
-                if (!audioSource.isPlaying)
+                /*if (!audioSource.isPlaying)
                 {
                     audioSource.PlayOneShot(jumpSFX);
-                }
+                }*/
+                am.PlaySFX(1);
             }
             transform.Translate(Vector2.right * _velocity * Time.deltaTime);
         }
@@ -84,7 +88,8 @@ public class TrashFlyBehaviour : MonoBehaviour
             transform.position = defaultPos;
 
             // Play fall sound effect
-            audioSource.PlayOneShot(fallSFX);
+            //audioSource.PlayOneShot(fallSFX);
+            am.PlaySFX(4);
 
             Debug.Log("Bounds Hit");
         }
@@ -98,7 +103,8 @@ public class TrashFlyBehaviour : MonoBehaviour
             {
                 Debug.Log("Correct Trash Can");
                 // Play fall sound effect
-                audioSource.PlayOneShot(winSFX);
+                //audioSource.PlayOneShot(winSFX);
+                am.PlaySFX(6);
                 //Enable move after mini game / destroyer of interacted object //copy to every win condition of minigames
                 isWin = true;
             }

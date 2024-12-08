@@ -10,43 +10,19 @@ public class Leaf : MonoBehaviour
     public float moveUpDistance = 1.0f; // Distance the object will move up
     public float fadeDuration = 1.5f; // Duration of the fade-out effect
 
-    public AudioClip removeLeafSFX; // Sound effect for removing a leaf
-    private AudioSource audioSource;
+    //public AudioClip removeLeafSFX; // Sound effect for removing a leaf //9
+    //private AudioSource audioSource;
+    
+    AudioManager am;
+
     void Start()
     {
-        // Reset the counter if this is the first leaf spawned
-        //if (totalLeaves == 0)
-        //{
-        //    totalLeaves = GameObject.FindGameObjectsWithTag("GrateTrash").Length;
-        //}
+        am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
         leafRenderer = GetComponent<Renderer>();
         leafCollider = GetComponent<PolygonCollider2D>(); // Cache the Collider component
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
     }
-
-    //private void OnMouseDown()
-    //{
-    //    StartCoroutine(PickUpEffect());
-    //}
-
-    //private void OnMouseDown()
-    //{
-    //    // Perform a raycast to detect all objects under the mouse
-    //    Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    //    RaycastHit2D[] hits = Physics2D.RaycastAll(mousePos, Vector2.zero);  // Detect all objects under the mouse position
-
-    //    foreach (RaycastHit2D hit in hits)
-    //    {
-    //        // Check if the hit object has the "GrateTrash" tag
-    //        if (hit.collider.CompareTag("GrateTrash"))
-    //        {
-    //            // Start the pick-up effect coroutine only if the tag is "GrateTrash"
-    //            StartCoroutine(PickUpEffect());
-    //            return; // Exit loop once the effect is triggered for the first valid object
-    //        }
-    //    }
-    //}
 
     private void OnMouseDown()
     {
@@ -60,7 +36,8 @@ public class Leaf : MonoBehaviour
             if (hit.collider.isTrigger && hit.collider.CompareTag("GrateTrash"))
             {
                 StartCoroutine(PickUpEffect());  // Trigger the effect only if conditions are met
-                audioSource.PlayOneShot(removeLeafSFX);
+                //audioSource.PlayOneShot(removeLeafSFX);
+                am.PlaySFX(9);
                 break;  // Exit loop once the effect is triggered for the first valid object
             }
         }

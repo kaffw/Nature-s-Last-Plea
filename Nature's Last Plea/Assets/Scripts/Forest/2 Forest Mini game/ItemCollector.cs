@@ -10,18 +10,22 @@ public class ItemCollector : MonoBehaviour
     public TextMeshProUGUI statusText;
 
     // Audio Clips for Sound Effects
-    public AudioClip sfxA; // Sound effect for Seed, Water, Sunlight
-    public AudioClip sfxB; // Sound effect for Trash
-    private AudioSource audioSource;
+    //public AudioClip sfxA; // Sound effect for Seed, Water, Sunlight //1
+    //public AudioClip sfxB; // Sound effect for Trash //2
+    //private AudioSource audioSource;
+
+    AudioManager am;
 
     void Start()
     {
         // Get the AudioSource component
-        audioSource = GetComponent<AudioSource>();
+        /*audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
         {
             Debug.LogError("AudioSource component missing from this game object.");
-        }
+        }*/
+
+        am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
         UpdateStatusText("Awaiting Seed");
     }
@@ -42,35 +46,40 @@ public class ItemCollector : MonoBehaviour
         if (other.CompareTag("Seed") && collectionStage == 0)
         {
             collectionStage++;
-            PlaySound(sfxA);
+            //PlaySound(sfxA);
+            am.PlaySFX(1);
             UpdateStatusText("Seed collected! Next: Water");
             Debug.Log("Seed");
         }
         else if (other.CompareTag("Water") && collectionStage == 1)
         {
             collectionStage++;
-            PlaySound(sfxA);
+            //PlaySound(sfxA);
+            am.PlaySFX(1);
             UpdateStatusText("Water collected! Next: Sunlight");
             Debug.Log("Water");
         }
         else if (other.CompareTag("Sunlight") && collectionStage == 2)
         {
             collectionStage++;
-            PlaySound(sfxA);
+            //PlaySound(sfxA);
+            am.PlaySFX(1);
             UpdateStatusText("Sunlight collected! Goal Complete!");
             Debug.Log("Sunlight");
             CompleteGame(); // Call method to handle game completion
         }
         else if (other.CompareTag("Trash"))
         {
-            PlaySound(sfxB);
+            //PlaySound(sfxB);
+            am.PlaySFX(2);
             UpdateStatusText("Game Over! You hit trash.");
             Debug.Log("Trash");
             EndGame(); // Call method to handle game over
         }
         else if (collectionStage >= 0 && collectionStage <= 2) // Ensure correct sequence
         {
-            PlaySound(sfxB);
+            //PlaySound(sfxB);
+            am.PlaySFX(2);
             UpdateStatusText("Wrong item collected! Expected: " + GetExpectedItem());
             Debug.Log("Wrong item collected");
             EndGame(); // Call method to handle wrong collection
@@ -102,13 +111,13 @@ public class ItemCollector : MonoBehaviour
         }
     }
 
-    void PlaySound(AudioClip clip)
+    /*void PlaySound(AudioClip clip)
     {
         if (audioSource != null && clip != null)
         {
             audioSource.PlayOneShot(clip); // Play the provided sound effect
         }
-    }
+    }*/
 
     // Helper method to return the expected item message
     string GetExpectedItem()

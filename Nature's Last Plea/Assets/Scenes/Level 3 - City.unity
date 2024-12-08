@@ -2594,6 +2594,7 @@ MonoBehaviour:
   defeatCutscene: {fileID: 953401714}
   isCalled: 0
   timerImage: {fileID: 1285452109}
+  objCompleted: 0
 --- !u!1 &188275290
 GameObject:
   m_ObjectHideFlags: 0
@@ -132529,7 +132530,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgmGameLoopVolume: 0
+  sfxGameLoopVolume: 0
   bgmGameSlider: {fileID: 1619449821}
+  sfxGameSlider: {fileID: 930306512}
 --- !u!1 &1993520579
 GameObject:
   m_ObjectHideFlags: 0

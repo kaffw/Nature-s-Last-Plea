@@ -10,6 +10,9 @@ public class AudioVolumeManager : MonoBehaviour
     public Slider bgmSlider;
     public AudioVolumeReceiver bgmGameSceneVolume;
     
+    public static float sfxGlobalVolume;
+    public Slider sfxSlider;
+
     public static bool volumeInitialized = false;
     
     Scene currScene;
@@ -20,6 +23,7 @@ public class AudioVolumeManager : MonoBehaviour
         {
             volumeInitialized = true;
             bgmGlobalVolume = 1f;
+            sfxGlobalVolume = 1f;
         }
     }
 
@@ -30,6 +34,7 @@ public class AudioVolumeManager : MonoBehaviour
         if (currScene.buildIndex == 0)
         {
             bgmGlobalVolume = bgmSlider.value;
+            sfxGlobalVolume = sfxSlider.value;
         }
     }
 }

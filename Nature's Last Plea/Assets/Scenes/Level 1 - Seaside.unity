@@ -99896,7 +99896,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgmGameLoopVolume: 0
+  sfxGameLoopVolume: 0
   bgmGameSlider: {fileID: 1619449821}
+  sfxGameSlider: {fileID: 930306512}
 --- !u!1 &1419198278
 GameObject:
   m_ObjectHideFlags: 0

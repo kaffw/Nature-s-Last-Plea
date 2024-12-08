@@ -13,22 +13,25 @@ public class FishingHookBehaviour : MonoBehaviour
     public ReelingThemInScoreManager scoreManager;
 
     // Audio variables
-    public AudioClip attachTrashSFX; // Sound for attaching trash
-    public AudioClip otherSFX;       // Sound for hitting other objects
-    private AudioSource audioSource;
+    //public AudioClip attachTrashSFX; // Sound for attaching trash
+    //public AudioClip otherSFX;       // Sound for hitting other objects
+    //private AudioSource audioSource;
+
+    AudioManager am;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         fishingPause = GameObject.Find("Fishing Rod").GetComponent<FishingRodBehaviour>();
         scoreManager = GameObject.Find("Reeling Them In Score").GetComponent<ReelingThemInScoreManager>();
+        am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
         // Get or add an AudioSource component
-        audioSource = GetComponent<AudioSource>();
+        /*audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
         {
             audioSource = gameObject.AddComponent<AudioSource>();
-        }
+        }*/
     }
 
     void Update()
@@ -45,7 +48,8 @@ public class FishingHookBehaviour : MonoBehaviour
             isReturning = true;
 
             // Play other object SFX
-            PlaySound(otherSFX);
+            //PlaySound(otherSFX);
+            am.PlaySFX(7);
         }
 
         if (other.CompareTag("Trash"))
@@ -54,7 +58,8 @@ public class FishingHookBehaviour : MonoBehaviour
             isReturning = true;
 
             // Play trash attachment SFX
-            PlaySound(attachTrashSFX);
+            //PlaySound(attachTrashSFX);
+            am.PlaySFX(2);
         }
 
         if (other.CompareTag("Player"))
@@ -70,11 +75,11 @@ public class FishingHookBehaviour : MonoBehaviour
         }
     }
 
-    private void PlaySound(AudioClip clip)
+    /*private void PlaySound(AudioClip clip)
     {
         if (clip != null && audioSource != null)
         {
             audioSource.PlayOneShot(clip);
         }
-    }
+    }*/
 }

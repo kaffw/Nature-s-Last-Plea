@@ -25,14 +25,17 @@ public class SaplingMovement : MonoBehaviour
     private Rigidbody2D _rb;
 
     // Sound effect references
-    public AudioClip successSound; // Sound when planted in water area
-    public AudioClip failSound;    // Sound when dropped to the ground
-    private AudioSource audioSource;
+    //public AudioClip successSound; // Sound when planted in water area
+    //public AudioClip failSound;    // Sound when dropped to the ground
+    //private AudioSource audioSource;
+    
+    AudioManager am;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        audioSource = GetComponent<AudioSource>(); // Ensure there's an AudioSource component
+        //audioSource = GetComponent<AudioSource>(); // Ensure there's an AudioSource component
+        am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
         originalPosition = transform.position;
         transform.position = points[startingPoint].position;
@@ -83,12 +86,14 @@ public class SaplingMovement : MonoBehaviour
     {
         if (other.CompareTag("Log")) // Fail condition
         {
-            PlaySound(failSound);
+            //PlaySound(failSound);
+            am.PlaySFX(4);
             GameOver();
         }
         else if (other.CompareTag("Border")) // Success condition
         {
-            PlaySound(successSound);
+            //PlaySound(successSound);
+            am.PlaySFX(5);
             PlantedSafe();
         }
     }
@@ -112,11 +117,11 @@ public class SaplingMovement : MonoBehaviour
     }
 
     // Play the appropriate sound
-    void PlaySound(AudioClip clip)
+    /*void PlaySound(AudioClip clip)
     {
         if (audioSource != null && clip != null)
         {
             audioSource.PlayOneShot(clip);
         }
-    }
+    }*/
 }

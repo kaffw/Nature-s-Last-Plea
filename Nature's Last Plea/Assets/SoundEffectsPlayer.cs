@@ -4,7 +4,19 @@ using UnityEngine;
 
 public class SoundEffectsPlayer : MonoBehaviour
 {
-    public AudioSource AudSrc;
+    AudioManager am;
+
+    void Awake()
+    {
+        am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+    }
+
+    public void ButtonPressedSFX()
+    {
+        am.PlaySFX(3);
+    }
+}
+/*public AudioSource AudSrc;
     public AudioClip sfx1;
 
     public void Button1()
@@ -26,5 +38,4 @@ public class SoundEffectsPlayer : MonoBehaviour
     {
         AudSrc.clip = sfx1;
         AudSrc.Play();
-    }
-}
+    }*/
