@@ -114,6 +114,9 @@ public class SaplingMovement : MonoBehaviour
     {
         isGameOver = true;
         Debug.Log("Game Over!");
+        PlayerController pc = GameObject.Find("Aurora").GetComponent<PlayerController>();
+        pc.inAction = false;
+        Destroy(transform.parent.gameObject);
     }
 
     // Play the appropriate sound
