@@ -325,7 +325,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 99
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.5254902, g: 0.7372549, b: 0.570195, a: 1}
+  m_Color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -759,9 +759,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _velocity: 3
-  jumpSFX: {fileID: 8300000, guid: 9c885ecf383e9174caf8617b9f78cede, type: 3}
-  fallSFX: {fileID: 8300000, guid: e2969ea5763d0424e8c8483c8a40c21d, type: 3}
-  winSFX: {fileID: 8300000, guid: a78460c4f08160949887e2b83b50f618, type: 3}
 --- !u!212 &7252573975217801500
 SpriteRenderer:
   m_ObjectHideFlags: 0
