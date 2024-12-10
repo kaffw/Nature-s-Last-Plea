@@ -11,6 +11,8 @@ public class FishingRodBehaviour : MonoBehaviour
 
     public GameObject fishingHook;
     public GameObject firePoint;
+
+    public GameObject tutorial;
     
     private void Start()
     {
@@ -19,12 +21,13 @@ public class FishingRodBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isPaused && !isDisabled)
-        {
-            isPaused = true;
-            Instantiate(fishingHook, new Vector2(firePoint.transform.position.x, firePoint.transform.position.y), transform.rotation);
-            Debug.Log("mouse action");
-        }
+        if(tutorial == null)
+            if (Input.GetMouseButtonDown(0) && !isPaused && !isDisabled)
+            {
+                isPaused = true;
+                Instantiate(fishingHook, new Vector2(firePoint.transform.position.x, firePoint.transform.position.y), transform.rotation);
+                Debug.Log("mouse action");
+            }
     }
 
     private IEnumerator Rotate()

@@ -29,6 +29,7 @@ public class TrashFlyBehaviour : MonoBehaviour
     //private AudioSource audioSource;
 
     AudioManager am;
+    public GameObject tutorial;
 
     void Start()
     {
@@ -53,32 +54,36 @@ public class TrashFlyBehaviour : MonoBehaviour
 
     void Update()
     {
-        if (!isWin)
+        if(tutorial == null)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (!isWin)
             {
-                _rb.velocity = Vector2.up * _velocity;
-
-                // Play jump sound effect
-                /*if (!audioSource.isPlaying)
+                if (Input.GetKey(KeyCode.Space) || Input.GetMouseButtonDown(0))
                 {
-                    audioSource.PlayOneShot(jumpSFX);
-                }*/
-                am.PlaySFX(1);
+                    _rb.velocity = Vector2.up * _velocity;
+
+                    // Play jump sound effect
+                    /*if (!audioSource.isPlaying)
+                    {
+                        audioSource.PlayOneShot(jumpSFX);
+                    }*/
+                    am.PlaySFX(1);
+                }
+                transform.Translate(Vector2.right * _velocity * Time.deltaTime);
             }
-            transform.Translate(Vector2.right * _velocity * Time.deltaTime);
-        }
-        else
-        {
-            _rb.bodyType = RigidbodyType2D.Static;
+            else
+            {
+                _rb.bodyType = RigidbodyType2D.Static;
 
-            PlayerController pController = GameObject.Find("Aurora").GetComponent<PlayerController>();
-            pController.DestroyInteractedObject();
-            pController.inAction = false;
+                PlayerController pController = GameObject.Find("Aurora").GetComponent<PlayerController>();
+                pController.DestroyInteractedObject();
+                pController.inAction = false;
 
-            Debug.Log("You Win! Minigame will be destroyed in 1 second");
-            Destroy(transform.parent.gameObject, 1f);
+                Debug.Log("You Win! Minigame will be destroyed in 1 second");
+                Destroy(transform.parent.gameObject, 1f);
+            }
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -10,6 +10,8 @@ public class PotMovement : MonoBehaviour
 
     private Transform parentTransform;
 
+    public GameObject tutorial;
+
     void Start()
     {
         parentTransform = transform.parent;
@@ -17,14 +19,17 @@ public class PotMovement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if(tutorial == null)
         {
-            MovePot(-1);
-        }
+            if (Input.GetMouseButton(0))
+            {
+                MovePot(-1);
+            }
 
-        if (Input.GetMouseButton(1))
-        {
-            MovePot(1);
+            if (Input.GetMouseButton(1))
+            {
+                MovePot(1);
+            }
         }
     }
 

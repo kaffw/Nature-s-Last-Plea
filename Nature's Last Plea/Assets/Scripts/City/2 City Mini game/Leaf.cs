@@ -14,10 +14,12 @@ public class Leaf : MonoBehaviour
     //private AudioSource audioSource;
     
     AudioManager am;
+    public GameObject tutorial;
 
     void Start()
     {
         am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        tutorial = GameObject.Find("L3M2 Tutorial");
 
         leafRenderer = GetComponent<Renderer>();
         leafCollider = GetComponent<PolygonCollider2D>(); // Cache the Collider component
@@ -27,18 +29,22 @@ public class Leaf : MonoBehaviour
     private void OnMouseDown()
     {
         // Perform a raycast to detect all objects under the mouse position
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        RaycastHit2D[] hits = Physics2D.RaycastAll(mousePos, Vector2.zero);  // Detect all objects under the mouse position
 
-        foreach (RaycastHit2D hit in hits)
+        if(tutorial == null)
         {
-            // Only interact with objects that have a trigger collider
-            if (hit.collider.isTrigger && hit.collider.CompareTag("GrateTrash"))
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(mousePos, Vector2.zero);  // Detect all objects under the mouse position
+
+            foreach (RaycastHit2D hit in hits)
             {
-                StartCoroutine(PickUpEffect());  // Trigger the effect only if conditions are met
-                //audioSource.PlayOneShot(removeLeafSFX);
-                am.PlaySFX(9);
-                break;  // Exit loop once the effect is triggered for the first valid object
+                // Only interact with objects that have a trigger collider
+                if (hit.collider.isTrigger && hit.collider.CompareTag("GrateTrash"))
+                {
+                    StartCoroutine(PickUpEffect());  // Trigger the effect only if conditions are met
+                    //audioSource.PlayOneShot(removeLeafSFX);
+                    am.PlaySFX(9);
+                    break;  // Exit loop once the effect is triggered for the first valid object
+                }
             }
         }
     }

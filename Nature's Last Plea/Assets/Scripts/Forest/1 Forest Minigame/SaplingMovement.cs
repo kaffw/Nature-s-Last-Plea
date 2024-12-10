@@ -31,6 +31,8 @@ public class SaplingMovement : MonoBehaviour
     
     AudioManager am;
 
+    public GameObject tutorial;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -45,22 +47,23 @@ public class SaplingMovement : MonoBehaviour
 
     void Update()
     {
-        if (!isGameOver)
-        {
-            if (!isDropping)
+        if(tutorial == null)
+            if (!isGameOver)
             {
-                MoveHorizontally();
-
-                if (Input.GetMouseButtonDown(0))
+                if (!isDropping)
                 {
-                    isDropping = true;
+                    MoveHorizontally();
+
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        isDropping = true;
+                    }
+                }
+                else
+                {
+                    DropDown();
                 }
             }
-            else
-            {
-                DropDown();
-            }
-        }
     }
 
     void MoveHorizontally()
