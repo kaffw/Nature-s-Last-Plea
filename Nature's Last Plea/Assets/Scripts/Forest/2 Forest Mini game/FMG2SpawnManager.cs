@@ -124,7 +124,12 @@ public class FMG2SpawnManager : MonoBehaviour
         pController.inAction = false;
 
         Debug.Log("You Win! Minigame will be destroyed in 1 second");
-        Destroy(transform.parent.gameObject, 1f);
+        Destroy(transform.parent.gameObject, 0.1f);
+
+        //Fade Handler
+        VirtualCameraManager.inMinigame = false;
+        VirtualCameraManager fade = FindObjectOfType<VirtualCameraManager>();
+        fade.Fades();
 
         yield return null;
     }

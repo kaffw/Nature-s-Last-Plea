@@ -56,6 +56,7 @@ public class TrashFlyBehaviour : MonoBehaviour
     {
         if(tutorial == null)
         {
+            _rb.gravityScale = 1f;
             if (!isWin)
             {
                 if (Input.GetKey(KeyCode.Space) || Input.GetMouseButtonDown(0))
@@ -78,12 +79,20 @@ public class TrashFlyBehaviour : MonoBehaviour
                 PlayerController pController = GameObject.Find("Aurora").GetComponent<PlayerController>();
                 pController.DestroyInteractedObject();
                 pController.inAction = false;
+                
+                //Fade Handler
+                VirtualCameraManager.inMinigame = false;
+                VirtualCameraManager fade = FindObjectOfType<VirtualCameraManager>();
+                fade.Fades();
 
                 Debug.Log("You Win! Minigame will be destroyed in 1 second");
-                Destroy(transform.parent.gameObject, 1f);
+                Destroy(transform.parent.gameObject, 0.1f);
             }
         }
-
+        else
+        {
+            _rb.gravityScale = 0f;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

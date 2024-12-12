@@ -157,7 +157,9 @@ public class PlayerController : MonoBehaviour
                 minigameIndex = 1;
             }
 
-            Instantiate(minigameArray[minigameIndex], new Vector2(mainCamera.transform.position.x, mainCamera.transform.position.y), transform.rotation);
+            //Instantiate(minigameArray[minigameIndex], new Vector2(mainCamera.transform.position.x, mainCamera.transform.position.y), transform.rotation);
+            Instantiate(minigameArray[minigameIndex], new Vector2(0, 0), transform.rotation);
+            VirtualCameraManager.inMinigame = true;
 
             inAction = true;
             

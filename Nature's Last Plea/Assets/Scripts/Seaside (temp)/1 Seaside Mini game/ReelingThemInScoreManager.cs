@@ -65,7 +65,13 @@ public class ReelingThemInScoreManager : MonoBehaviour
         pController.inAction = false;
 
         Debug.Log("You Win! Minigame will be destroyed in 1 second");
-        Destroy(transform.parent.gameObject, 1f);
+        
+        //Fade Handler
+        VirtualCameraManager.inMinigame = false;
+        VirtualCameraManager fade = FindObjectOfType<VirtualCameraManager>();
+        fade.Fades();
+        
+        Destroy(transform.parent.gameObject, 0.1f);
 
         //Destroy(miniGameObject);
         yield return null;

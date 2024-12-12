@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -56,7 +57,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void GamePause() //press P or by button
+    public void GamePause() //press P or by button
     {
         //Discarded
         //pause canvas set active true... if any
@@ -98,5 +99,10 @@ public class GameManager : MonoBehaviour
     public void OnClickButtonState4()
     {
         if(isPaused) SetPauseState(3);
+    }
+
+    public void OnClickHome()
+    {
+        SceneManager.LoadScene(0);
     }
 }

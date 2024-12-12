@@ -13,6 +13,7 @@ public class ObjectiveElementBehaviour : MonoBehaviour
         if (!inCooldown)
         {
             StartCoroutine(StateTraverseCam());
+            Debug.Log("objectiveelementbehvaiour");
         }
     }
 
@@ -20,10 +21,10 @@ public class ObjectiveElementBehaviour : MonoBehaviour
     {
         inCooldown = true;
 
-        cvc.Priority = 11;
+        cvc.Priority = 12;
         yield return new WaitForSecondsRealtime(3f);
         
-        cvc.Priority = 9;
+        cvc.Priority = 8;
         
         inCooldown = false;
         

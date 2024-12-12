@@ -51,9 +51,14 @@ public class SpawnManager : MonoBehaviour
             PlayerController pController = GameObject.Find("Aurora").GetComponent<PlayerController>();
             pController.DestroyInteractedObject();
             pController.inAction = false;
+            
+            //Fade Handler
+            VirtualCameraManager.inMinigame = false;
+            VirtualCameraManager fade = FindObjectOfType<VirtualCameraManager>();
+            fade.Fades();
 
             Debug.Log("You Win! Minigame will be destroyed in 1 second");
-            Destroy(gameObject, 1f);
+            Destroy(gameObject, 0.1f);
         }
     }
 }

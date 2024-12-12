@@ -19,13 +19,15 @@ public class LocateObjectiveBehaviour : MonoBehaviour
     public void MoveToTarget()
     {
         Time.timeScale = 1;
-        virtualCamera.Follow = target;
+        //virtualCamera.Follow = target;
+        virtualCamera.Priority = 12;
         StartCoroutine(Return());
     }
 
     IEnumerator Return()
     {
         yield return new WaitForSeconds(3f);
-        virtualCamera.Follow = originPos;
+        virtualCamera.Priority = 8;
+        //virtualCamera.Follow = originPos;
     }
 }
