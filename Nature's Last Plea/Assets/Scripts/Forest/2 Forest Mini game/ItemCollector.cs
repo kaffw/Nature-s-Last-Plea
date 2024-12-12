@@ -7,6 +7,9 @@ public class ItemCollector : MonoBehaviour
 {
     private int collectionStage = 0;
     public bool gameOver = false;
+    public GameObject seedIndicator;
+    public GameObject dropletIndicator;
+    public GameObject sunlightIndicator;
     
     // public TextMeshProUGUI statusText;
 
@@ -50,6 +53,7 @@ public class ItemCollector : MonoBehaviour
             //PlaySound(sfxA);
             am.PlaySFX(1);
             // UpdateStatusText("Seed collected! Next: Water");
+            seedIndicator.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
             Debug.Log("Seed");
         }
         else if (other.CompareTag("Water") && collectionStage == 1)
@@ -58,6 +62,7 @@ public class ItemCollector : MonoBehaviour
             //PlaySound(sfxA);
             am.PlaySFX(1);
             // UpdateStatusText("Water collected! Next: Sunlight");
+            dropletIndicator.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
             Debug.Log("Water");
         }
         else if (other.CompareTag("Sunlight") && collectionStage == 2)
@@ -66,6 +71,7 @@ public class ItemCollector : MonoBehaviour
             //PlaySound(sfxA);
             am.PlaySFX(1);
             // UpdateStatusText("Sunlight collected! Goal Complete!");
+            sunlightIndicator.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
             Debug.Log("Sunlight");
             CompleteGame(); // Call method to handle game completion
         }
