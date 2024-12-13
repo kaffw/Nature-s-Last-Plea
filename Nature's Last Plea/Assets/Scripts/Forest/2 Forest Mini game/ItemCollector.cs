@@ -79,9 +79,8 @@ public class ItemCollector : MonoBehaviour
         {
             //PlaySound(sfxB);
             am.PlaySFX(2);
-            // UpdateStatusText("Game Over! You hit trash.");
             Debug.Log("Trash");
-            //EndGame(); // Call method to handle game over
+            EndGame(); // Call method to handle game over
         }
         else if (collectionStage >= 0 && collectionStage <= 2) // Ensure correct sequence
         {
@@ -89,7 +88,7 @@ public class ItemCollector : MonoBehaviour
             am.PlaySFX(2);
             // UpdateStatusText("Wrong item collected! Expected: " + GetExpectedItem());
             Debug.Log("Wrong item collected");
-            //EndGame(); // Call method to handle wrong collection
+            EndGame(); // Call method to handle wrong collection
         }
 
         Destroy(other.gameObject); // Destroy the collected item
@@ -107,25 +106,8 @@ public class ItemCollector : MonoBehaviour
     {
         gameOver = true; // Set the game over flag
         FMG2SpawnManager SM = GameObject.Find("FMG2 Spawn Manager").GetComponent<FMG2SpawnManager>();
-        SM.EndGame(); // Stop spawning new items
+        StartCoroutine(SM.DefeatMiniGame()); // Stop spawning new items
     }
-
-    /*
-    void UpdateStatusText(string message)
-    {
-        if (statusText != null)
-        {
-            statusText.text = message; // Update the UI text
-        }
-    }
-    */
-    /*void PlaySound(AudioClip clip)
-    {
-        if (audioSource != null && clip != null)
-        {
-            audioSource.PlayOneShot(clip); // Play the provided sound effect
-        }
-    }*/
 
     // Helper method to return the expected item message
     string GetExpectedItem()

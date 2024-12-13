@@ -72,7 +72,7 @@ public class GameTimerManager : MonoBehaviour
 
         if (inCutscene)
         {
-            if (Input.GetKeyDown(KeyCode.X))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 SceneManager.LoadScene(0);
             }
@@ -86,8 +86,8 @@ public class GameTimerManager : MonoBehaviour
         inCutscene = true;
         rain.SetActive(false);
         globalLight.intensity = 1f;
-
-        yield return new WaitForSeconds(15f);
+        victoryCutscene.SetActive(true);
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(0);
         yield return null;
     }

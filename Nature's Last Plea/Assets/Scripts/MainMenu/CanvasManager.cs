@@ -14,6 +14,17 @@ public class CanvasManager : MonoBehaviour
 
     public Image lvl2img, lvl3backimg, lvl3frontimg;
 
+    private static bool forceLevelSelect = false;
+
+    void Start()
+    {
+        if(!forceLevelSelect) forceLevelSelect = true;
+        else
+        {
+            SelectLevel();
+        }        
+    }
+
     void Update()
     {
         if (unlockedLevels >= 2)
@@ -26,6 +37,8 @@ public class CanvasManager : MonoBehaviour
             lvl3frontimg.color = new Color32(255, 255, 255, 255);
         }
     }
+
+    
 
     public void Option()
     {

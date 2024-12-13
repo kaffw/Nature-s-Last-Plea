@@ -133,4 +133,20 @@ public class FMG2SpawnManager : MonoBehaviour
 
         yield return null;
     }
+
+    public IEnumerator DefeatMiniGame()
+    {
+        PlayerController pController = GameObject.Find("Aurora").GetComponent<PlayerController>();
+        pController.inAction = false;
+
+        Debug.Log("You Win! Minigame will be destroyed in 1 second");
+        Destroy(transform.parent.gameObject, 0.1f);
+
+        //Fade Handler
+        VirtualCameraManager.inMinigame = false;
+        VirtualCameraManager fade = FindObjectOfType<VirtualCameraManager>();
+        fade.Fades();
+
+        yield return null;
+    }
 }
