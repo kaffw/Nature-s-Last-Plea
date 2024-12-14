@@ -9,6 +9,12 @@ public class LocateObjectiveBehaviour : MonoBehaviour
     public CinemachineVirtualCamera virtualCamera;
     private Transform originPos;
 
+    ObjectivesManager objMan;
+
+    void Awake()
+    {
+        objMan = FindObjectOfType<ObjectivesManager>();
+    }
 
     void Start()
     {
@@ -18,10 +24,14 @@ public class LocateObjectiveBehaviour : MonoBehaviour
 
     public void MoveToTarget()
     {
-        Time.timeScale = 1;
-        //virtualCamera.Follow = target;
-        virtualCamera.Priority = 12;
-        StartCoroutine(Return());
+        if(!ObjectivesManager.camTraversalInAction)
+        {
+            StartCoroutine(objMan.CamTraversalCooldown());
+            Time.timeScale = 1;
+            //virtualCamera.Follow = target;
+            virtualCamera.Priority = 12;
+            StartCoroutine(Return());
+        }
     }
 
     IEnumerator Return()

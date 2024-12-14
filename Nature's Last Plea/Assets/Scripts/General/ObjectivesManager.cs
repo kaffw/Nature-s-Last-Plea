@@ -8,6 +8,8 @@ public class ObjectivesManager : MonoBehaviour
 
     public Transform[] spawnLocations;
 
+    public static bool camTraversalInAction;
+
     void Start()
     {
         List<int> availableIndices = new List<int>();
@@ -31,10 +33,19 @@ public class ObjectivesManager : MonoBehaviour
 
             availableIndices.RemoveAt(randIndex);
         }
+
+        camTraversalInAction = false;
     }
 
     public void ShowLocation(int index)
     {
         Debug.Log(objectives[index].transform.position);
+    }
+
+    public IEnumerator CamTraversalCooldown()
+    {
+        camTraversalInAction = true;
+        yield return new WaitForSeconds(3f);
+        camTraversalInAction = false;
     }
 }
