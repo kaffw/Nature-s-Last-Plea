@@ -59,18 +59,16 @@ public class GameManager : MonoBehaviour
 
     public void GamePause() //press P or by button
     {
-        //Discarded
-        //pause canvas set active true... if any
-        //Time.timeScale = (Time.timeScale > 0) ? 0 : 1; // Pause/Unpause
-        //isPaused = Time.timeScale == 0;
-        //gamePauseObject.SetActive(Time.timeScale == 0);
+        if(!VirtualCameraManager.inMinigame)
+        {
+            //Disable player movement
+            isPaused = (isPaused == true) ? false : true;
+            auroraController.inAction = isPaused;
+            auroraController.DisableMovementUponInteraction();
+            gamePauseObject.SetActive(isPaused);
 
-        //Disables player movement instead of actual game pause
-        isPaused = (isPaused == true) ? false : true;
-        auroraController.inAction = isPaused;
-        gamePauseObject.SetActive(isPaused);
-
-        SetPauseState(0);
+            SetPauseState(0);
+        }
     }
 
     private void SetPauseState(int index)
@@ -83,26 +81,26 @@ public class GameManager : MonoBehaviour
 
     public void OnClickButtonState1()
     {
-        if (isPaused) SetPauseState(0);
+        if (isPaused && !VirtualCameraManager.inMinigame) SetPauseState(0);
     }
 
     public void OnClickButtonState2()
     {
-        if (isPaused) SetPauseState(1);
+        if (isPaused && !VirtualCameraManager.inMinigame) SetPauseState(1);
     }
 
     public void OnClickButtonState3()
     {
-        if (isPaused) SetPauseState(2);
+        if (isPaused && !VirtualCameraManager.inMinigame) SetPauseState(2);
     }
 
     public void OnClickButtonState4()
     {
-        if(isPaused) SetPauseState(3);
+        if(isPaused && !VirtualCameraManager.inMinigame) SetPauseState(3);
     }
 
     public void OnClickHome()
     {
-        SceneManager.LoadScene(0);
+        if(!VirtualCameraManager.inMinigame) SceneManager.LoadScene(0);
     }
 }

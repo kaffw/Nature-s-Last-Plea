@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && !inAction)
         {
-            rb.velocity = Vector2.zero; //disable movement upon pressing E
+            DisableMovementUponInteraction(); //disable movement upon pressing E
 
             GameObject[] minigameArray = minigameMap[currInteractedObject.tag];
 
@@ -176,6 +176,11 @@ public class PlayerController : MonoBehaviour
             Instantiate(sapling, currInteractedObject.transform.position, currInteractedObject.transform.rotation);
         }
         Destroy(currInteractedObject);
+    }
+
+    public void DisableMovementUponInteraction()
+    {
+        rb.velocity = Vector2.zero;
     }
 }
 
