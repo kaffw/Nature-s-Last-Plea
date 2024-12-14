@@ -2814,7 +2814,7 @@ MonoBehaviour:
   rain: {fileID: 0}
   globalLight: {fileID: 0}
   HUD: {fileID: 1004099858}
-  victoryCutscene: {fileID: 0}
+  victoryCutscene: {fileID: 1004099858}
   defeatCutscene: {fileID: 953401714}
   isCalled: 0
   timerImage: {fileID: 1285452109}
