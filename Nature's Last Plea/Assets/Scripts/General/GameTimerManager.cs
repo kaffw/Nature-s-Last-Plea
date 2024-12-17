@@ -77,6 +77,11 @@ public class GameTimerManager : MonoBehaviour
                 SceneManager.LoadScene("Main Menu");
             }
         }
+
+        if(Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.U))
+        {
+            gameTimer = 175f;
+        }
     }
 
 

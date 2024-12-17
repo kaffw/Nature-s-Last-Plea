@@ -17,6 +17,8 @@ public class FMG2SpawnManager : MonoBehaviour
     // Parent transform for relative positioning
     private Transform parentTransform;
 
+    public GameObject tutorial;
+
     void Start()
     {
         isGameActive = true;
@@ -26,17 +28,17 @@ public class FMG2SpawnManager : MonoBehaviour
 
     void Update()
     {
-        // Only spawn items when the game is active
-        if (!isGameActive) return;
-
-        // Increment timer by the time elapsed since the last frame
-        timer += Time.deltaTime;
-
-        // Check if it's time to spawn a new item
-        if (timer >= spawnInterval)
+        if(tutorial == null)
         {
-            SpawnItem();
-            timer = 0;  // Reset the timer
+            if (!isGameActive) return;
+
+            timer += Time.deltaTime;
+
+            if (timer >= spawnInterval)
+            {
+                SpawnItem();
+                timer = 0;  // Reset the timer
+            }
         }
     }
 

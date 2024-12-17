@@ -1254,6 +1254,7 @@ MonoBehaviour:
   spawnRangeX: 9
   spawnY: 5
   bottomY: -5
+  tutorial: {fileID: 6125320578087127709}
 --- !u!1 &8756874153307040645
 GameObject:
   m_ObjectHideFlags: 0
