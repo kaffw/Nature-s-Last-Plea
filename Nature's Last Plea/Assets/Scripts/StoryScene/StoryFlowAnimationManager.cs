@@ -28,6 +28,9 @@ public class StoryFlowAnimationManager : MonoBehaviour
     void Start()
     {
         darkenCalled = false;
+
+        //set fix resolution
+        Screen.SetResolution(1280, 720, false);
     }
 
     void Update()
