@@ -13,17 +13,22 @@ public class Leaf : MonoBehaviour
     //public AudioClip removeLeafSFX; // Sound effect for removing a leaf //9
     //private AudioSource audioSource;
     
-    AudioManager am;
+    AudioSource audSFX;
+
     public GameObject tutorial;
 
     void Start()
     {
-        am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audSFX = transform.Find("AudSrc").GetComponent<AudioSource>();
         tutorial = GameObject.Find("L3M2 Tutorial");
 
         leafRenderer = GetComponent<Renderer>();
-        leafCollider = GetComponent<PolygonCollider2D>(); // Cache the Collider component
-        //audioSource = GetComponent<AudioSource>();
+        leafCollider = GetComponent<PolygonCollider2D>();
+    }
+
+    void Update()
+    {
+        audSFX.volume = AudioVolumeManager.sfxGlobalVolume;
     }
 
     private void OnMouseDown()
@@ -42,7 +47,8 @@ public class Leaf : MonoBehaviour
                 {
                     StartCoroutine(PickUpEffect());  // Trigger the effect only if conditions are met
                     //audioSource.PlayOneShot(removeLeafSFX);
-                    am.PlaySFX(9);
+                    //am.PlaySFX(9);
+                    audSFX.Play();
                     break;  // Exit loop once the effect is triggered for the first valid object
                 }
             }
