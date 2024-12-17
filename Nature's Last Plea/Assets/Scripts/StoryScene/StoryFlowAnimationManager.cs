@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StoryFlowAnimationManager : MonoBehaviour
 {
@@ -10,14 +11,17 @@ public class StoryFlowAnimationManager : MonoBehaviour
             frogAnim,
             landscapeAnim;
 
-    public GameObject darkenGO;
+    public GameObject darkenGO, shockExpGO;
+    public GameObject[] dialogueLineGO;
+    private bool line1 = false, line2= false, line3 = false;
 
     public float timer;
 
     private float
             entryDuration = 1.5f,
             talkDuration = 0.9f,
-            darkenDuration = 7f;
+            darkenDuration = 7f,
+            exitDuration = 9f;
 
     private bool darkenCalled;
 
@@ -30,8 +34,22 @@ public class StoryFlowAnimationManager : MonoBehaviour
     {
         timer += Time.deltaTime;
 
+        if(!line1)
+        {
+            dialogueLineGO[0].SetActive(true);
+            line1 = true;
+        }
+
         if(timer >= entryDuration)
         {
+            if(!line2 && timer >= entryDuration + 1f)
+            {
+                TextFadeIn fade = dialogueLineGO[0].GetComponent<TextFadeIn>();
+                StartCoroutine(fade.FadeTextOut());
+                dialogueLineGO[1].SetActive(true);
+                line2 = true;
+            }
+
             auroraAnim.SetTrigger("AuroraTalks");
         }
 
@@ -40,15 +58,30 @@ public class StoryFlowAnimationManager : MonoBehaviour
             frogAnim.SetTrigger("FrogTalks");
         }
 
+        if(!line3 && timer >= 6f)
+        {
+            TextFadeIn fade = dialogueLineGO[1].GetComponent<TextFadeIn>();
+            StartCoroutine(fade.FadeTextOut());
+            dialogueLineGO[2].SetActive(true);
+            line3 = true;
+        }
+
         if(timer >= entryDuration + talkDuration + talkDuration && !darkenCalled)
         {
+            shockExpGO.SetActive(true);
             StartCoroutine(Darkens());
             darkenCalled = true;
         }
 
         if(timer >= darkenDuration)
+        {            
+            auroraAnim.SetTrigger("AuroraExits");
+            landscapeAnim.SetTrigger("ParallaxExit");
+        }
+
+        if(timer >= exitDuration)
         {
-        //aurora runs to the other side
+            StartCoroutine(ExitScene());
         }
     }
 
@@ -97,7 +130,33 @@ public class StoryFlowAnimationManager : MonoBehaviour
 
         img.color = startColor;
         Debug.Log(timer);
+        shockExpGO.SetActive(false);
         darkenGO.SetActive(false);
+    }
+
+    IEnumerator ExitScene()
+    {
+        //fade
+        darkenGO.SetActive(true);
+
+        Image img = darkenGO.GetComponent<Image>();
+        
+        Color startColor = img.color;
+        Color endColor = new Color(startColor.r, startColor.g, startColor.b, 255f / 255f);
+
+        float duration = 2f;
+
+        float timeElapsed = 0f;
+
+        while (timeElapsed < duration)
+        {
+            img.color = Color.Lerp(startColor, endColor, timeElapsed / duration);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        img.color = endColor;
+        SceneManager.LoadScene("Main Menu");
     }
 }
 /*

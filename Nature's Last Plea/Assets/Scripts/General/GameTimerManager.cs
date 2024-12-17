@@ -74,7 +74,7 @@ public class GameTimerManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene("Main Menu");
             }
         }
     }
@@ -88,7 +88,7 @@ public class GameTimerManager : MonoBehaviour
         globalLight.intensity = 1f;
         victoryCutscene.SetActive(true);
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Main Menu");
         yield return null;
     }
 
@@ -99,7 +99,7 @@ public class GameTimerManager : MonoBehaviour
         HUD.SetActive(false);
         defeatCutscene.SetActive(true);
         yield return new WaitForSeconds(15f);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Main Menu");
         yield return null;
     }
 

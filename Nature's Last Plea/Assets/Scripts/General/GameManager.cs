@@ -101,6 +101,6 @@ public class GameManager : MonoBehaviour
 
     public void OnClickHome()
     {
-        if(!VirtualCameraManager.inMinigame) SceneManager.LoadScene(0);
+        if(!VirtualCameraManager.inMinigame) SceneManager.LoadScene("Main Menu");
     }
 }
